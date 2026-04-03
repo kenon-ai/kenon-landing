@@ -434,10 +434,12 @@
 </p>
 
 <!-- 3D Cyber Ellipse Loop -->
-<div class="relative w-full max-w-5xl mx-auto overflow-visible mt-8 mb-16">
+<!-- Desktop Version -->
+<div class="hidden md:block relative w-full max-w-5xl mx-auto overflow-visible mt-8 mb-16">
+    <!-- Existing desktop SVG code -->
     <svg viewBox="0 0 1000 350" class="w-full h-auto overflow-visible">
         <defs>
-            <filter id="cyberGlow" x="-30%" y="-30%" width="160%" height="160%">
+            <filter id="cyberGlowDesktop" x="-30%" y="-30%" width="160%" height="160%">
                 <feGaussianBlur stdDeviation="6" result="blur" />
                 <feMerge>
                     <feMergeNode in="blur" />
@@ -445,19 +447,9 @@
                     <feMergeNode in="SourceGraphic" />
                 </feMerge>
             </filter>
-            <filter id="nodeGlow" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="8" result="blur" />
-                <feComponentTransfer in="blur" result="glow">
-                    <feFuncA type="linear" slope="0.5" />
-                </feComponentTransfer>
-                <feMerge>
-                    <feMergeNode in="glow" />
-                    <feMergeNode in="SourceGraphic" />
-                </feMerge>
-            </filter>
         </defs>
 
-        <!-- Back Nodes (Drawn first to stay behind the front) -->
+        <!-- Back Nodes -->
         <g transform="translate(275, 71) scale(0.65)" opacity="0.65">
             <foreignObject x="-60" y="-40" width="120" height="120" style="overflow:visible;">
                 <div xmlns="http://www.w3.org/1999/xhtml" class="flex flex-col items-center group cursor-default">
@@ -480,15 +472,11 @@
         </g>
 
         <!-- The Glowing Orbital Track -->
-        <!-- Underlayer -->
         <path d="M 950,175 A 450,120 0 1,1 50,175 A 450,120 0 1,1 950,175" fill="none" stroke="rgba(0, 229, 255, 0.15)" stroke-width="3" />
-        
-        <!-- The Core Laser Flow -->
-        <path d="M 950,175 A 450,120 0 1,1 50,175 A 450,120 0 1,1 950,175" fill="none" stroke="#00e5ff" stroke-width="4" filter="url(#cyberGlow)" pathLength="1000" stroke-dasharray="150 850" stroke-linecap="round">
+        <path d="M 950,175 A 450,120 0 1,1 50,175 A 450,120 0 1,1 950,175" fill="none" stroke="#00e5ff" stroke-width="4" filter="url(#cyberGlowDesktop)" pathLength="1000" stroke-dasharray="150 850" stroke-linecap="round">
             <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="4s" repeatCount="indefinite" />
         </path>
 
-        <!-- Center holographic Infinity symbol -->
         <foreignObject x="450" y="125" width="100" height="100">
              <div xmlns="http://www.w3.org/1999/xhtml" class="w-full h-full flex flex-col items-center justify-center opacity-30">
                  <span class="material-symbols-outlined text-cyan-400 text-6xl" style="filter: drop-shadow(0 0 10px rgba(0,229,255,0.8))">all_inclusive</span>
@@ -517,7 +505,7 @@
             </foreignObject>
         </g>
 
-        <!-- Front Nodes (Most prominent) -->
+        <!-- Front Nodes -->
         <g transform="translate(725, 279) scale(1.05)">
             <foreignObject x="-60" y="-40" width="120" height="130" style="overflow:visible;">
                 <div xmlns="http://www.w3.org/1999/xhtml" class="flex flex-col items-center group cursor-default">
@@ -535,6 +523,101 @@
                         <span class="material-symbols-outlined text-white text-2xl drop-shadow-[0_0_5px_rgba(255,255,255,1)]">done_all</span>
                     </div>
                     <span class="mt-4 font-headline font-bold text-[15px] tracking-widest text-white uppercase drop-shadow-md">finalize</span>
+                </div>
+            </foreignObject>
+        </g>
+    </svg>
+</div>
+
+<!-- Mobile Version -->
+<div class="block md:hidden relative w-full overflow-visible mt-8 mb-4 px-2">
+    <svg viewBox="0 0 500 700" class="w-full h-auto overflow-visible">
+        <defs>
+            <filter id="cyberGlowMobile" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="8" result="blur" />
+                <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                </feMerge>
+            </filter>
+        </defs>
+
+        <!-- Back Nodes (Check, Impact) -->
+        <g transform="translate(160, 125) scale(0.7)" opacity="0.7">
+            <foreignObject x="-80" y="-60" width="160" height="180" style="overflow:visible;">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="flex flex-col items-center group cursor-default">
+                    <div class="w-20 h-20 rounded-full bg-[#060e20] border-2 border-outline-variant/60 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-cyan-500 text-4xl">fact_check</span>
+                    </div>
+                    <span class="mt-4 font-headline font-bold text-xl tracking-widest text-[#bac9cc] uppercase">check</span>
+                </div>
+            </foreignObject>
+        </g>
+        <g transform="translate(340, 125) scale(0.7)" opacity="0.7">
+            <foreignObject x="-80" y="-60" width="160" height="180" style="overflow:visible;">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="flex flex-col items-center group cursor-default">
+                    <div class="w-20 h-20 rounded-full bg-[#060e20] border-2 border-outline-variant/60 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-emerald-500 text-4xl">hub</span>
+                    </div>
+                    <span class="mt-4 font-headline font-bold text-xl tracking-widest text-[#bac9cc] uppercase">impact</span>
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- Orbital Track (Vertical Ellipse) -->
+        <!-- cx=250, cy=350, rx=180, ry=260 -->
+        <path d="M 430,350 A 180,260 0 1,1 70,350 A 180,260 0 1,1 430,350" fill="none" stroke="rgba(0, 229, 255, 0.15)" stroke-width="4" />
+        <path d="M 430,350 A 180,260 0 1,1 70,350 A 180,260 0 1,1 430,350" fill="none" stroke="#00e5ff" stroke-width="6" filter="url(#cyberGlowMobile)" pathLength="1000" stroke-dasharray="150 850" stroke-linecap="round">
+            <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="4s" repeatCount="indefinite" />
+        </path>
+
+        <foreignObject x="200" y="300" width="100" height="100">
+             <div xmlns="http://www.w3.org/1999/xhtml" class="w-full h-full flex flex-col items-center justify-center opacity-30">
+                 <span class="material-symbols-outlined text-cyan-400 text-6xl" style="filter: drop-shadow(0 0 10px rgba(0,229,255,0.8))">all_inclusive</span>
+             </div>
+        </foreignObject>
+
+        <!-- Middle Nodes (Load, Verify) -->
+        <g transform="translate(70, 350) scale(0.9)">
+            <foreignObject x="-80" y="-60" width="160" height="180" style="overflow:visible;">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="flex flex-col items-center group cursor-default">
+                    <div class="w-20 h-20 rounded-full bg-[#0b1326] border-2 border-cyan-400/80 flex items-center justify-center shadow-[0_0_20px_rgba(0,229,255,0.4)]">
+                        <span class="material-symbols-outlined text-cyan-300 text-4xl group-hover:text-white transition-colors">download</span>
+                    </div>
+                    <span class="mt-4 font-headline font-bold text-xl tracking-widest text-[#bac9cc] group-hover:text-cyan-300 uppercase">load</span>
+                </div>
+            </foreignObject>
+        </g>
+        <g transform="translate(430, 350) scale(0.9)">
+            <foreignObject x="-80" y="-60" width="160" height="180" style="overflow:visible;">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="flex flex-col items-center group cursor-default">
+                    <div class="w-20 h-20 rounded-full bg-[#0b1326] border-2 border-cyan-400/80 flex items-center justify-center shadow-[0_0_20px_rgba(0,229,255,0.4)]">
+                        <span class="material-symbols-outlined text-cyan-300 text-4xl group-hover:text-white transition-colors">verified</span>
+                    </div>
+                    <span class="mt-4 font-headline font-bold text-xl tracking-widest text-[#bac9cc] group-hover:text-cyan-300 uppercase">verify</span>
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- Front Nodes (Save, Finalize) -->
+        <g transform="translate(340, 575) scale(1.1)">
+            <foreignObject x="-80" y="-60" width="160" height="180" style="overflow:visible;">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="flex flex-col items-center group cursor-default">
+                    <div class="w-20 h-20 rounded-full bg-cyan-950/80 backdrop-blur-md border-2 border-cyan-300 flex items-center justify-center shadow-[0_0_30px_rgba(0,229,255,0.6)]">
+                        <span class="material-symbols-outlined text-white text-4xl drop-shadow-[0_0_8px_rgba(255,255,255,1)]">save</span>
+                    </div>
+                    <span class="mt-5 font-headline font-bold text-xl tracking-widest text-white uppercase drop-shadow-md">save</span>
+                </div>
+            </foreignObject>
+        </g>
+        <g transform="translate(160, 575) scale(1.1)">
+            <foreignObject x="-80" y="-60" width="160" height="180" style="overflow:visible;">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="flex flex-col items-center group cursor-default">
+                    <div class="w-20 h-20 rounded-full bg-cyan-950/80 backdrop-blur-md border-2 border-cyan-300 flex items-center justify-center shadow-[0_0_30px_rgba(0,229,255,0.6)]">
+                        <span class="material-symbols-outlined text-white text-4xl drop-shadow-[0_0_8px_rgba(255,255,255,1)]">done_all</span>
+                    </div>
+                    <span class="mt-5 font-headline font-bold text-xl tracking-widest text-white uppercase drop-shadow-md">finalize</span>
                 </div>
             </foreignObject>
         </g>
