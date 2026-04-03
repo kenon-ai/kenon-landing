@@ -428,50 +428,107 @@
     <span class="lang-en">A short loop for real work.</span>
     <span class="lang-zh">主导真实工作的极简循环。</span>
 </h2>
-<p class="text-on-surface-variant mb-16">
+<p class="text-on-surface-variant mb-12">
     <span class="lang-en">The standard lifecycle for agent interaction.</span>
     <span class="lang-zh">规范化 Agent 交互的标准生命周期。</span>
 </p>
-<div class="flex flex-col md:flex-row justify-between items-center gap-8 relative">
-<!-- Connector Line (Hidden on mobile) -->
-<div class="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-outline-variant/50 to-transparent hidden md:block"></div>
-<div class="z-10 group">
-<div class="w-20 h-20 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-3xl">download</span>
+
+<!-- Circular Loop Diagram -->
+<div class="relative w-[320px] h-[320px] md:w-[420px] md:h-[420px] mx-auto">
+    <!-- Orbit Ring -->
+    <svg class="absolute inset-0 w-full h-full" viewBox="0 0 420 420">
+        <!-- Main circle path -->
+        <circle cx="210" cy="210" r="160" fill="none" stroke="rgba(0,229,255,0.15)" stroke-width="2" />
+        <circle cx="210" cy="210" r="160" fill="none" stroke="rgba(0,229,255,0.4)" stroke-width="2" stroke-dasharray="8 12" class="animate-[spin_20s_linear_infinite]" style="transform-origin: 210px 210px" />
+        
+        <!-- Flowing dot 1 -->
+        <circle r="4" fill="#00e5ff" class="animate-[orbitDot_6s_linear_infinite]" filter="url(#glow)">
+            <animateMotion dur="6s" repeatCount="indefinite">
+                <mpath href="#loopPath" />
+            </animateMotion>
+        </circle>
+        <!-- Flowing dot 2 (offset) -->
+        <circle r="3" fill="#00e5ff" opacity="0.5">
+            <animateMotion dur="6s" repeatCount="indefinite" begin="-3s">
+                <mpath href="#loopPath" />
+            </animateMotion>
+        </circle>
+        
+        <!-- Hidden path for motion -->
+        <path id="loopPath" d="M 210 50 A 160 160 0 1 1 209.99 50" fill="none" />
+        
+        <!-- Glow filter -->
+        <defs>
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+            </filter>
+        </defs>
+
+        <!-- Connection lines to center -->
+        <line x1="210" y1="50" x2="210" y2="180" stroke="rgba(0,229,255,0.1)" stroke-width="1" stroke-dasharray="2 4" />
+        <line x1="363" y1="122" x2="250" y2="185" stroke="rgba(0,229,255,0.1)" stroke-width="1" stroke-dasharray="2 4" />
+        <line x1="363" y1="298" x2="250" y2="235" stroke="rgba(0,229,255,0.1)" stroke-width="1" stroke-dasharray="2 4" />
+        <line x1="210" y1="370" x2="210" y2="240" stroke="rgba(0,229,255,0.1)" stroke-width="1" stroke-dasharray="2 4" />
+        <line x1="57" y1="298" x2="170" y2="235" stroke="rgba(0,229,255,0.1)" stroke-width="1" stroke-dasharray="2 4" />
+        <line x1="57" y1="122" x2="170" y2="185" stroke="rgba(0,229,255,0.1)" stroke-width="1" stroke-dasharray="2 4" />
+    </svg>
+
+    <!-- Center Label -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+        <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#0b1326] border border-cyan-400/50 flex items-center justify-center shadow-[0_0_30px_rgba(0,229,255,0.2)]">
+            <span class="material-symbols-outlined text-cyan-400 text-3xl md:text-4xl">all_inclusive</span>
+        </div>
+    </div>
+    
+    <!-- Node: load (top, 12 o'clock) -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1 z-10 group">
+        <div class="w-14 h-14 md:w-16 md:h-16 bg-[#0b1326]/90 backdrop-blur border border-cyan-400/40 flex items-center justify-center shadow-[3px_3px_0_0_rgba(0,229,255,0.2)] group-hover:border-cyan-300 transition-all">
+            <span class="material-symbols-outlined text-primary text-xl md:text-2xl">download</span>
+        </div>
+        <span class="font-headline font-bold text-xs md:text-sm block mt-2 text-cyan-300 tracking-widest">load</span>
+    </div>
+
+    <!-- Node: check (top-right, 2 o'clock) -->
+    <div class="absolute top-[10%] right-[-4%] md:right-[-2%] z-10 group">
+        <div class="w-14 h-14 md:w-16 md:h-16 bg-[#0b1326]/90 backdrop-blur border border-cyan-400/40 flex items-center justify-center shadow-[3px_3px_0_0_rgba(0,229,255,0.2)] group-hover:border-cyan-300 transition-all">
+            <span class="material-symbols-outlined text-primary text-xl md:text-2xl">fact_check</span>
+        </div>
+        <span class="font-headline font-bold text-xs md:text-sm block mt-2 text-on-surface-variant tracking-widest">check</span>
+    </div>
+
+    <!-- Node: impact (bottom-right, 4 o'clock) -->
+    <div class="absolute bottom-[10%] right-[-4%] md:right-[-2%] z-10 group">
+        <div class="w-14 h-14 md:w-16 md:h-16 bg-[#0b1326]/90 backdrop-blur border border-cyan-400/40 flex items-center justify-center shadow-[3px_3px_0_0_rgba(0,229,255,0.2)] group-hover:border-cyan-300 transition-all">
+            <span class="material-symbols-outlined text-primary text-xl md:text-2xl">hub</span>
+        </div>
+        <span class="font-headline font-bold text-xs md:text-sm block mt-2 text-on-surface-variant tracking-widest">impact</span>
+    </div>
+
+    <!-- Node: verify (bottom, 6 o'clock) -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1 z-10 group">
+        <div class="w-14 h-14 md:w-16 md:h-16 bg-[#0b1326]/90 backdrop-blur border border-cyan-400/40 flex items-center justify-center shadow-[3px_3px_0_0_rgba(0,229,255,0.2)] group-hover:border-cyan-300 transition-all">
+            <span class="material-symbols-outlined text-primary text-xl md:text-2xl">verified</span>
+        </div>
+        <span class="font-headline font-bold text-xs md:text-sm block mt-2 text-on-surface-variant tracking-widest">verify</span>
+    </div>
+
+    <!-- Node: save (bottom-left, 8 o'clock) -->
+    <div class="absolute bottom-[10%] left-[-4%] md:left-[-2%] z-10 group">
+        <div class="w-14 h-14 md:w-16 md:h-16 bg-[#0b1326]/90 backdrop-blur border border-cyan-400/40 flex items-center justify-center shadow-[3px_3px_0_0_rgba(0,229,255,0.2)] group-hover:border-cyan-300 transition-all">
+            <span class="material-symbols-outlined text-primary text-xl md:text-2xl">save</span>
+        </div>
+        <span class="font-headline font-bold text-xs md:text-sm block mt-2 text-on-surface-variant tracking-widest">save</span>
+    </div>
+
+    <!-- Node: finalize (top-left, 10 o'clock) -->
+    <div class="absolute top-[10%] left-[-4%] md:left-[-2%] z-10 group">
+        <div class="w-14 h-14 md:w-16 md:h-16 bg-[#0b1326]/90 backdrop-blur border border-cyan-400/40 flex items-center justify-center shadow-[3px_3px_0_0_rgba(0,229,255,0.2)] group-hover:border-cyan-300 transition-all">
+            <span class="material-symbols-outlined text-primary text-xl md:text-2xl">done_all</span>
+        </div>
+        <span class="font-headline font-bold text-xs md:text-sm block mt-2 text-on-surface-variant tracking-widest">finalize</span>
+    </div>
 </div>
-<span class="font-headline font-bold block">load</span>
-</div>
-<div class="z-10 group">
-<div class="w-20 h-20 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-3xl">fact_check</span>
-</div>
-<span class="font-headline font-bold block">check</span>
-</div>
-<div class="z-10 group">
-<div class="w-20 h-20 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-3xl">hub</span>
-</div>
-<span class="font-headline font-bold block">impact</span>
-</div>
-<div class="z-10 group">
-<div class="w-20 h-20 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-3xl">verified</span>
-</div>
-<span class="font-headline font-bold block">verify</span>
-</div>
-<div class="z-10 group">
-<div class="w-20 h-20 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-3xl">save</span>
-</div>
-<span class="font-headline font-bold block">save</span>
-</div>
-<div class="z-10 group">
-<div class="w-20 h-20 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-3xl">done_all</span>
-</div>
-<span class="font-headline font-bold block">finalize</span>
-</div>
-</div>
+
 </div>
 </section>
 <!-- 3-Minute Demo -->
