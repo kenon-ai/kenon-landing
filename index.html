@@ -150,11 +150,11 @@
 <h1 class="text-6xl lg:text-8xl font-headline font-bold leading-tight tracking-widest text-primary drop-shadow-[0_0_15px_rgba(0,229,255,0.5)]">
                     Kenon
                 </h1>
-<p class="hero-effect text-2xl lg:text-3xl font-headline text-on-surface-variant font-medium leading-tight">
-                    <span class="lang-en">The local context layer for coding agents.</span><span class="lang-zh">面向 Coding Agents 的本地项目上下文层。</span>
+<p class="hero-effect text-[1.4rem] lg:text-[1.8rem] font-headline text-on-surface-variant font-medium leading-tight">
+                    <span class="lang-en">Context protocol and concurrency coordination layer for coding agents. Keep them working continuously without losing state, boundaries, and evidence.</span><span class="lang-zh">面向 Coding Agents 的上下文协议与并发协调层，让 Agent 在真实工程里持续工作而不失去状态、边界和证据。</span>
                 </p>
-<p class="text-lg text-on-surface-variant max-w-xl leading-relaxed">
-                    <span class="lang-en">Agent-first repo-local semantic ledger and context protocol for coding agents, with a deterministic zero-dependency core.</span><span class="lang-zh">面向 Coding Agents 的 Agent-First、Repo-Local 语义台账与上下文协议层，以确定性的零依赖主链运行。</span>
+<p class="text-lg text-on-surface-variant max-w-xl leading-relaxed drop-shadow-md">
+                    <span class="lang-en">Install in 2 minutes. Stop letting your Agents understand the repo from scratch every time.</span><span class="lang-zh">2 分钟装上，让你的 Agent 不再每次都从零理解仓库。</span>
                 </p>
 <div class="flex flex-wrap gap-6 pt-6">
 <a href="#fast-track" class="relative group px-8 py-3 bg-cyan-400/10 backdrop-blur-md border border-cyan-400/50 hover:bg-cyan-400/30 font-headline text-lg font-bold text-cyan-300 tracking-widest uppercase transition-all duration-300 shadow-[6px_6px_0px_0px_rgba(0,229,255,0.3)] hover:shadow-[3px_3px_0px_0px_rgba(0,229,255,0.6)] hover:translate-x-[3px] hover:translate-y-[3px] flex items-center justify-center">
@@ -746,12 +746,12 @@
 <section class="py-24 max-w-7xl mx-auto px-8">
 <div class="mb-16">
 <h2 class="text-4xl font-headline font-bold mb-4 text-center">
-    <span class="lang-en">Not a Workflow Tool.</span>
-    <span class="lang-zh">并非另一款 Workflow 工具。</span>
+    <span class="lang-en">Workflow Tools vs Kenon.</span>
+    <span class="lang-zh">Workflow 工具 与 Kenon 区别。</span>
 </h2>
 <p class="text-center text-on-surface-variant">
-    <span class="lang-en">Kenon is the infra beneath the automation.</span>
-    <span class="lang-zh">Kenon 是构建在自动化之下的核心层基础设施。</span>
+    <span class="lang-en">It's a repo-local semantic ledger beneath the workflow layer.</span>
+    <span class="lang-zh">Kenon 是一层嵌入在工作流之下的本地工程语义账本。</span>
 </p>
 </div>
 <div class="flex flex-col border-t border-outline-variant/20 mt-8">
@@ -770,112 +770,131 @@
         </div>
     </div>
     
-    <!-- Row 1: Primary Purpose -->
+    <!-- Row 1: Primary Consumer -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-8 border-b border-outline-variant/10">
         <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0">
-            <span class="lang-en">Primary Purpose</span>
+            <span class="lang-en">Primary Consumer</span>
+            <span class="lang-zh">第一消费者</span>
+        </div>
+        <div class="md:col-span-4 text-on-surface-variant flex flex-col bg-surface-container-high/30 md:bg-transparent p-4 md:p-0 rounded-xl md:rounded-none">
+            <span class="md:hidden text-[10px] uppercase tracking-widest font-mono text-on-surface-variant mb-2">Workflow Tools</span>
+            <span>
+                <span class="lang-en">Human + Agent dual-read workflow assets</span>
+                <span class="lang-zh">人类 + Agent 共读的工作流资产</span>
+            </span>
+        </div>
+        <div class="md:col-span-5 text-on-surface flex flex-col bg-[#0b1326] md:bg-transparent p-4 md:p-0 rounded-xl md:rounded-none mt-2 md:mt-0 border border-outline-variant/20 md:border-none shadow-[0_0_15px_rgba(0,229,255,0.1)] md:shadow-none">
+            <span class="md:hidden text-[10px] uppercase tracking-widest font-mono text-primary mb-2">Kenon</span>
+            <span class="text-cyan-100 md:text-on-surface">
+                <span class="lang-en">Agent-first runtime state, boundary and evidence protocol</span>
+                <span class="lang-zh">Agent-first 的运行时状态、边界与证据协议</span>
+            </span>
+        </div>
+    </div>
+    
+    <!-- Row 2: Core Objective -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-8 border-b border-outline-variant/10">
+        <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0">
+            <span class="lang-en">Core Objective</span>
             <span class="lang-zh">核心目标</span>
         </div>
         <div class="md:col-span-4 text-on-surface-variant flex flex-col bg-surface-container-high/30 md:bg-transparent p-4 md:p-0 rounded-xl md:rounded-none">
             <span class="md:hidden text-[10px] uppercase tracking-widest font-mono text-on-surface-variant mb-2">Workflow Tools</span>
             <span>
-                <span class="lang-en">Organize tasks &amp; specs</span>
-                <span class="lang-zh">组织任务与需求规范</span>
+                <span class="lang-en">Organize AI coding collaboration workflows</span>
+                <span class="lang-zh">组织 AI coding 协作流程</span>
             </span>
         </div>
         <div class="md:col-span-5 text-on-surface flex flex-col bg-[#0b1326] md:bg-transparent p-4 md:p-0 rounded-xl md:rounded-none mt-2 md:mt-0 border border-outline-variant/20 md:border-none shadow-[0_0_15px_rgba(0,229,255,0.1)] md:shadow-none">
             <span class="md:hidden text-[10px] uppercase tracking-widest font-mono text-primary mb-2">Kenon</span>
             <span class="text-cyan-100 md:text-on-surface">
-                <span class="lang-en">Local protocol layer</span>
-                <span class="lang-zh">本地标准协议层</span>
+                <span class="lang-en">Keep Agents working continuously without losing semantics</span>
+                <span class="lang-zh">让 Agent 在复杂工程中持续工作而不失真</span>
             </span>
         </div>
     </div>
 
-    <!-- Row 2: Context Logic -->
+    <!-- Row 3: Core Abstractions -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-8 border-b border-outline-variant/10">
+        <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0">
+            <span class="lang-en">Core Abstractions</span>
+            <span class="lang-zh">主要抽象</span>
+        </div>
+        <div class="md:col-span-4 text-on-surface-variant flex flex-col bg-surface-container-high/30 md:bg-transparent p-4 md:p-0 rounded-xl md:rounded-none">
+            <span class="md:hidden text-[10px] uppercase tracking-widest font-mono text-on-surface-variant mb-2">Workflow Tools</span>
+            <span>
+                <span class="font-mono text-sm opacity-80">specs / tasks / journals / integrations</span>
+            </span>
+        </div>
+        <div class="md:col-span-5 text-on-surface flex flex-col bg-[#0b1326] md:bg-transparent p-4 md:p-0 rounded-xl md:rounded-none mt-2 md:mt-0 border border-outline-variant/20 md:border-none shadow-[0_0_15px_rgba(0,229,255,0.1)] md:shadow-none">
+            <span class="md:hidden text-[10px] uppercase tracking-widest font-mono text-primary mb-2">Kenon</span>
+            <span class="text-cyan-100 md:text-on-surface font-mono text-sm">
+                intent / deps / quality / space / time
+            </span>
+        </div>
+    </div>
+
+    <!-- Row 4: Context Logic -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-8 border-b border-outline-variant/10">
         <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0">
             <span class="lang-en">Context Logic</span>
-            <span class="lang-zh">上下文逻辑</span>
+            <span class="lang-zh">上下文方式</span>
         </div>
         <div class="md:col-span-4 text-on-surface-variant flex flex-col bg-surface-container-high/30 md:bg-transparent p-4 md:p-0 rounded-xl md:rounded-none">
             <span class="md:hidden text-[10px] uppercase tracking-widest font-mono text-on-surface-variant mb-2">Workflow Tools</span>
             <span>
-                <span class="lang-en">RAG or full-repo context</span>
-                <span class="lang-zh">RAG 向量检索或代码片段</span>
+                <span class="lang-en">Document orchestration and injection</span>
+                <span class="lang-zh">文档编排与注入</span>
             </span>
         </div>
         <div class="md:col-span-5 text-on-surface flex flex-col bg-[#0b1326] md:bg-transparent p-4 md:p-0 rounded-xl md:rounded-none mt-2 md:mt-0 border border-outline-variant/20 md:border-none shadow-[0_0_15px_rgba(0,229,255,0.1)] md:shadow-none">
             <span class="md:hidden text-[10px] uppercase tracking-widest font-mono text-primary mb-2">Kenon</span>
             <span class="text-cyan-100 md:text-on-surface">
-                <span class="lang-en">Scoped context loading</span>
-                <span class="lang-zh">按作用域精准组装与装载</span>
+                <span class="lang-en">Dynamically tailored by module, scenario, deps, and history</span>
+                <span class="lang-zh">按模块、场景、依赖和历史决策动态裁剪</span>
             </span>
         </div>
     </div>
 
-    <!-- Row 3: Safety -->
+    <!-- Row 5: Task Loop -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-8 border-b border-outline-variant/10">
         <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0">
-            <span class="lang-en">Safety</span>
-            <span class="lang-zh">安全机制</span>
+            <span class="lang-en">Task Loop</span>
+            <span class="lang-zh">任务闭环</span>
         </div>
         <div class="md:col-span-4 text-on-surface-variant flex flex-col bg-surface-container-high/30 md:bg-transparent p-4 md:p-0 rounded-xl md:rounded-none">
             <span class="md:hidden text-[10px] uppercase tracking-widest font-mono text-on-surface-variant mb-2">Workflow Tools</span>
             <span>
-                <span class="lang-en">Post-execution review</span>
-                <span class="lang-zh">基于版本控制的事后 Review</span>
+                <span class="lang-en">PRD, checklists, and review flows</span>
+                <span class="lang-zh">PRD、checklist、review 流程</span>
             </span>
         </div>
         <div class="md:col-span-5 text-on-surface flex flex-col bg-[#0b1326] md:bg-transparent p-4 md:p-0 rounded-xl md:rounded-none mt-2 md:mt-0 border border-outline-variant/20 md:border-none shadow-[0_0_15px_rgba(0,229,255,0.1)] md:shadow-none">
             <span class="md:hidden text-[10px] uppercase tracking-widest font-mono text-primary mb-2">Kenon</span>
-            <span class="text-cyan-100 md:text-on-surface">
-                <span class="lang-en">Explicit boundaries &amp; grounds</span>
-                <span class="lang-zh">强制的读写隔离与不可改白名单</span>
+            <span class="text-cyan-100 md:text-on-surface font-mono text-sm opacity-90">
+                load → check → impact → verify → save/finalize
             </span>
         </div>
     </div>
-
-    <!-- Row 4: Memory -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-8 border-b border-outline-variant/10">
-        <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0">
-            <span class="lang-en">Memory</span>
-            <span class="lang-zh">记忆流转</span>
-        </div>
-        <div class="md:col-span-4 text-on-surface-variant flex flex-col bg-surface-container-high/30 md:bg-transparent p-4 md:p-0 rounded-xl md:rounded-none">
-            <span class="md:hidden text-[10px] uppercase tracking-widest font-mono text-on-surface-variant mb-2">Workflow Tools</span>
-            <span>
-                <span class="lang-en">Session-bound (cleared over time)</span>
-                <span class="lang-zh">依附于对话引擎的会话生命周期</span>
-            </span>
-        </div>
-        <div class="md:col-span-5 text-on-surface flex flex-col bg-[#0b1326] md:bg-transparent p-4 md:p-0 rounded-xl md:rounded-none mt-2 md:mt-0 border border-outline-variant/20 md:border-none shadow-[0_0_15px_rgba(0,229,255,0.1)] md:shadow-none">
-            <span class="md:hidden text-[10px] uppercase tracking-widest font-mono text-primary mb-2">Kenon</span>
-            <span class="text-cyan-100 md:text-on-surface">
-                <span class="lang-en">Written back to repo</span>
-                <span class="lang-zh">结构化回写至代码库长青存储</span>
-            </span>
-        </div>
-    </div>
-
-    <!-- Row 5: Core Loop -->
+    
+    <!-- Row 6: Project Memory -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-8">
         <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0">
-            <span class="lang-en">Core Loop</span>
-            <span class="lang-zh">核心引擎</span>
+            <span class="lang-en">Project Memory</span>
+            <span class="lang-zh">项目记忆</span>
         </div>
         <div class="md:col-span-4 text-on-surface-variant flex flex-col bg-surface-container-high/30 md:bg-transparent p-4 md:p-0 rounded-xl md:rounded-none">
             <span class="md:hidden text-[10px] uppercase tracking-widest font-mono text-on-surface-variant mb-2">Workflow Tools</span>
             <span>
-                <span class="lang-en">LLM-driven task orchestration</span>
-                <span class="lang-zh">由大模型主导任务调度与统筹</span>
+                <span class="lang-en">Human-readable workflow assets</span>
+                <span class="lang-zh">可读的工作流资产</span>
             </span>
         </div>
         <div class="md:col-span-5 text-on-surface flex flex-col bg-[#0b1326] md:bg-transparent p-4 md:p-0 rounded-xl md:rounded-none mt-2 md:mt-0 border border-outline-variant/20 md:border-none shadow-[0_0_15px_rgba(0,229,255,0.1)] md:shadow-none">
             <span class="md:hidden text-[10px] uppercase tracking-widest font-mono text-primary mb-2">Kenon</span>
             <span class="text-cyan-100 md:text-on-surface">
-                <span class="lang-en">Deterministic zero-dependency main chain using algorithmic folding</span>
-                <span class="lang-zh">零依赖的确定性主链，依靠本地算法进行状态折叠</span>
+                <span class="lang-en">Retraceable structured semantic ledger</span>
+                <span class="lang-zh">可回溯的结构化语义账本</span>
             </span>
         </div>
     </div>
