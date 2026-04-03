@@ -756,6 +756,52 @@
 </div>
 
 <div class="space-y-4">
+    <!-- Item 0.1 -->
+    <div class="grid md:grid-cols-2 gap-px bg-outline-variant/10 rounded-xl overflow-hidden border border-outline-variant/10 shadow-lg">
+        <div class="bg-[#120a0a]/80 p-6 md:p-8">
+            <div class="text-[10px] uppercase font-mono text-red-500 mb-3 flex items-center gap-2">
+                <span class="material-symbols-outlined text-[14px]">close</span> <span class="lang-en">Without Kenon</span><span class="lang-zh">没有 Kenon</span>
+            </div>
+            <p class="text-on-surface-variant text-base md:text-lg">
+                <span class="lang-en">Lacking a stable project state entry point before starting work.</span>
+                <span class="lang-zh">开工前缺少稳定的项目状态入口。</span>
+            </p>
+        </div>
+        <div class="bg-surface-container/50 backdrop-blur-md p-6 md:p-8 relative">
+            <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyan-500 shadow-[0_0_10px_rgba(0,229,255,0.8)]"></div>
+            <div class="text-[10px] uppercase font-mono text-cyan-400 mb-3 flex items-center gap-2">
+                <span class="material-symbols-outlined text-[14px]">check</span> <span class="lang-en">With Kenon</span><span class="lang-zh">有了 Kenon</span>
+            </div>
+            <p class="text-cyan-50 text-base md:text-lg">
+                <span class="lang-en"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">load</code> returns a folded, minimal relevant context instead of a full dump.</span>
+                <span class="lang-zh"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">load</code> 返回折叠后的最小相关上下文，而不是整个 dump。</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Item 0.2 -->
+    <div class="grid md:grid-cols-2 gap-px bg-outline-variant/10 rounded-xl overflow-hidden border border-outline-variant/10 shadow-lg">
+        <div class="bg-[#120a0a]/80 p-6 md:p-8">
+            <div class="text-[10px] uppercase font-mono text-red-500 mb-3 flex items-center gap-2">
+                <span class="material-symbols-outlined text-[14px]">close</span> <span class="lang-en">Without Kenon</span><span class="lang-zh">没有 Kenon</span>
+            </div>
+            <p class="text-on-surface-variant text-base md:text-lg">
+                <span class="lang-en">Excluded paths and discarded options are hard to reuse.</span>
+                <span class="lang-zh">已排除路径难以复用。</span>
+            </p>
+        </div>
+        <div class="bg-surface-container/50 backdrop-blur-md p-6 md:p-8 relative">
+            <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyan-500 shadow-[0_0_10px_rgba(0,229,255,0.8)]"></div>
+            <div class="text-[10px] uppercase font-mono text-cyan-400 mb-3 flex items-center gap-2">
+                <span class="material-symbols-outlined text-[14px]">check</span> <span class="lang-en">With Kenon</span><span class="lang-zh">有了 Kenon</span>
+            </div>
+            <p class="text-cyan-50 text-base md:text-lg">
+                <span class="lang-en">Explicit <code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">excluded</code> makes discarded paths and conditions retractable and reconsiderable.</span>
+                <span class="lang-zh"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">excluded</code>、<code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">grounds</code> 与 <code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">reconsider_when</code> 让排除路径及其生效条件可重审。</span>
+            </p>
+        </div>
+    </div>
+
     <!-- Item 1 -->
     <div class="grid md:grid-cols-2 gap-px bg-outline-variant/10 rounded-xl overflow-hidden border border-outline-variant/10 shadow-lg">
         <div class="bg-[#120a0a]/80 p-6 md:p-8">
@@ -1050,6 +1096,28 @@
             <span class="md:hidden text-[10px] uppercase tracking-widest font-mono text-primary mb-2">Kenon</span>
             <span class="text-cyan-100 md:text-on-surface font-mono text-sm opacity-90">
                 load → check → impact → verify → save/finalize
+            </span>
+        </div>
+    </div>
+
+    <!-- Row 5.5: Boundary Control -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-8 border-b border-outline-variant/10">
+        <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0">
+            <span class="lang-en">Boundary Control</span>
+            <span class="lang-zh">边界控制</span>
+        </div>
+        <div class="md:col-span-4 text-on-surface-variant flex flex-col bg-surface-container-high/30 md:bg-transparent p-4 md:p-0 rounded-xl md:rounded-none">
+            <span class="md:hidden text-[10px] uppercase tracking-widest font-mono text-on-surface-variant mb-2">Workflow Tools</span>
+            <span>
+                <span class="lang-en">Relies more on conventions and manual flows</span>
+                <span class="lang-zh">更多依赖规范与流程</span>
+            </span>
+        </div>
+        <div class="md:col-span-5 text-on-surface flex flex-col bg-[#0b1326] md:bg-transparent p-4 md:p-0 rounded-xl md:rounded-none mt-2 md:mt-0 border border-outline-variant/20 md:border-none shadow-[0_0_15px_rgba(0,229,255,0.1)] md:shadow-none">
+            <span class="md:hidden text-[10px] uppercase tracking-widest font-mono text-primary mb-2">Kenon</span>
+            <span class="text-cyan-100 md:text-on-surface">
+                <span class="lang-en">Explicitly models boundaries, excluded paths and conditions</span>
+                <span class="lang-zh">显式建模边界、排除路径和重审条件</span>
             </span>
         </div>
     </div>
