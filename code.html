@@ -5,6 +5,8 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Kenon | The local context layer for coding agents</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -69,7 +71,7 @@
                       "full": "0.75rem"
               },
               "fontFamily": {
-                      "headline": ["Space Grotesk"],
+                      "headline": ["DotGothic16", "monospace"],
                       "body": ["Inter"],
                       "label": ["Inter"]
               }
@@ -95,146 +97,209 @@
             box-shadow: 0 0 40px -10px rgba(0, 229, 255, 0.15);
         }
         .no-scrollbar::-webkit-scrollbar { display: none; }
+        body[data-lang="en"] .lang-zh { display: none !important; }
+        body[data-lang="zh"] .lang-en { display: none !important; }
+        .pixel-shadow { box-shadow: 4px 4px 0px 0px rgba(0,229,255,0.4) !important; }
+        .pixel-shadow:active { box-shadow: 1px 1px 0px 0px rgba(0,229,255,0.4) !important; transform: translate(3px, 3px); }
+        .pixel-border { border: 2px solid rgba(255,255,255,0.1) !important; border-radius: 0 !important; }
+        .pixel-border-hover:hover { border-color: rgba(0,229,255,0.5) !important; }
+        
+        /* Clean Typography for Chinese */
+        .lang-zh { font-family: 'Space Grotesk', 'Inter', sans-serif !important; }
+        h1 .lang-zh, h2 .lang-zh, h3 .lang-zh, .font-headline .lang-zh { 
+            font-family: 'Space Grotesk', 'Inter', sans-serif !important; 
+            letter-spacing: -0.02em; 
+            font-weight: 700;
+        }
     </style>
+    <script>
+        function toggleLang() {
+            const body = document.body;
+            body.setAttribute('data-lang', body.getAttribute('data-lang') === 'zh' ? 'en' : 'zh');
+        }
+    </script>
 </head>
-<body class="selection:bg-primary-container selection:text-on-primary-container">
+<body data-lang="zh" class="selection:bg-primary-container selection:text-on-primary-container bg-[#0b1326] text-[#bac3ff]">
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-xl">
 <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
 <div class="flex items-center gap-8">
-<span class="text-2xl font-bold tracking-tighter text-cyan-400 font-['Space_Grotesk']">Kenon</span>
-<div class="hidden md:flex gap-6">
+<span class="text-3xl font-bold tracking-widest text-cyan-400 font-headline drop-shadow-[0_0_8px_rgba(0,229,255,0.4)]">Kenon</span>
+<div class="hidden md:flex items-center gap-6">
+<button onclick="toggleLang()" class="mr-4 px-3 py-1 bg-surface-variant text-on-surface font-headline border-2 border-cyan-500 rounded-none hover:bg-cyan-500 hover:text-[#0b1326] transition-colors cursor-pointer"><span class="lang-zh">EN</span><span class="lang-en">中文</span></button>
 <a class="text-cyan-400 font-semibold font-['Space_Grotesk'] text-sm tracking-tight hover:text-cyan-300 transition-colors duration-300" href="https://github.com/kenon-ai/kenon/tree/main/docs">Docs</a>
 <a class="text-slate-300 font-['Space_Grotesk'] text-sm tracking-tight hover:text-cyan-300 transition-colors duration-300" href="https://github.com/kenon-ai/kenon">GitHub</a>
 <a class="text-slate-300 font-['Space_Grotesk'] text-sm tracking-tight hover:text-cyan-300 transition-colors duration-300" href="https://github.com/kenon-ai/kenon/blob/main/AGENTS.md">AGENTS.md</a>
 </div>
 </div>
-<a href="#fast-track" class="bg-primary-container text-on-primary-container px-5 py-2 rounded-lg font-['Space_Grotesk'] text-sm font-bold scale-95 active:opacity-80 transition-all hover:shadow-[0_0_15px_rgba(0,229,255,0.4)] inline-block">
-                Get Started
-            </a>
+<a href="#fast-track" class="relative group px-6 py-2 bg-surface-variant/30 backdrop-blur-md border border-cyan-400/50 hover:bg-cyan-500/20 font-headline text-sm font-bold text-cyan-300 tracking-widest uppercase transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(0,229,255,0.4)] hover:shadow-[2px_2px_0px_0px_rgba(0,229,255,0.6)] hover:translate-x-[2px] hover:translate-y-[2px] flex items-center justify-center">
+    <span class="relative z-10 flex items-center gap-2">
+        <span class="lang-en">GET STARTED</span><span class="lang-zh">快速上手</span>
+        <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+    </span>
+    <!-- Pixel corner accents -->
+    <div class="absolute top-[-1px] left-[-1px] w-[3px] h-[3px] bg-cyan-400"></div>
+    <div class="absolute bottom-[-1px] right-[-1px] w-[3px] h-[3px] bg-cyan-400"></div>
+</a>
 </div>
 </nav>
 <main class="pt-24">
 <!-- Hero Section -->
 <section class="max-w-7xl mx-auto px-8 py-20 lg:py-32 grid lg:grid-cols-2 gap-16 items-center">
 <div class="space-y-8">
-<h1 class="text-6xl lg:text-8xl font-headline font-bold leading-[0.9] tracking-tighter text-primary">
+<h1 class="text-6xl lg:text-8xl font-headline font-bold leading-tight tracking-widest text-primary drop-shadow-[0_0_15px_rgba(0,229,255,0.5)]">
                     Kenon
                 </h1>
-<p class="text-2xl lg:text-3xl font-headline text-on-surface-variant font-medium leading-tight">
-                    The local context layer for coding agents.
+<p class="hero-effect text-2xl lg:text-3xl font-headline text-on-surface-variant font-medium leading-tight">
+                    <span class="lang-en">The local context layer for coding agents.</span><span class="lang-zh">面向 Coding Agents 的本地项目上下文层。</span>
                 </p>
 <p class="text-lg text-on-surface-variant max-w-xl leading-relaxed">
-                    Keep agents grounded in state, boundaries, evidence, and continuity. A repo-local protocol for project memory and safety guardrails.
+                    <span class="lang-en">Agent-first repo-local semantic ledger and context protocol for coding agents, with a deterministic zero-dependency core.</span><span class="lang-zh">面向 Coding Agents 的 Agent-First、Repo-Local 语义台账与上下文协议层，以确定性的零依赖主链运行。</span>
                 </p>
-<div class="flex flex-wrap gap-4 pt-4">
-<a href="#fast-track" class="bg-primary-container text-on-primary-container px-8 py-4 rounded-xl font-headline font-bold text-lg hover:shadow-[0_0_20px_rgba(0,229,255,0.3)] transition-all inline-block">
-                        Get Started
-                    </a>
-<a href="https://github.com/kenon-ai/kenon" class="border border-outline-variant text-on-surface px-8 py-4 rounded-xl font-headline font-bold text-lg hover:bg-surface-container-high transition-all inline-block">
-                        View on GitHub
-                    </a>
+<div class="flex flex-wrap gap-6 pt-6">
+<a href="#fast-track" class="relative group px-8 py-3 bg-cyan-400/10 backdrop-blur-md border border-cyan-400/50 hover:bg-cyan-400/30 font-headline text-lg font-bold text-cyan-300 tracking-widest uppercase transition-all duration-300 shadow-[6px_6px_0px_0px_rgba(0,229,255,0.3)] hover:shadow-[3px_3px_0px_0px_rgba(0,229,255,0.6)] hover:translate-x-[3px] hover:translate-y-[3px] flex items-center justify-center">
+    <span class="relative z-10 flex items-center gap-3">
+        <span class="lang-en">GET STARTED</span><span class="lang-zh">快速开始</span>
+        <span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">rocket_launch</span>
+    </span>
+    <!-- Pixel corner accents -->
+    <div class="absolute top-[-1px] left-[-1px] w-[4px] h-[4px] bg-cyan-400"></div>
+    <div class="absolute bottom-[-1px] right-[-1px] w-[4px] h-[4px] bg-cyan-400"></div>
+</a>
+<a href="https://github.com/kenon-ai/kenon" class="relative group px-8 py-3 bg-surface-variant/30 backdrop-blur-md border border-outline-variant/60 hover:border-cyan-400/50 font-headline text-lg font-bold text-on-surface tracking-widest uppercase transition-all duration-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.5)] hover:shadow-[3px_3px_0px_0px_rgba(0,229,255,0.4)] hover:translate-x-[3px] hover:translate-y-[3px] flex items-center justify-center">
+    <span class="relative z-10 flex items-center gap-3 group-hover:text-cyan-300 transition-colors">
+        <span class="material-symbols-outlined text-[20px] opacity-80">code</span>
+        <span class="lang-en">VIEW ON GITHUB</span><span class="lang-zh">查看 GITHUB</span>
+    </span>
+    <!-- Pixel corner accents -->
+    <div class="absolute top-[-1px] right-[-1px] w-[4px] h-[4px] bg-outline-variant group-hover:bg-cyan-400 transition-colors"></div>
+    <div class="absolute bottom-[-1px] left-[-1px] w-[4px] h-[4px] bg-outline-variant group-hover:bg-cyan-400 transition-colors"></div>
+</a>
 </div>
 </div>
 <!-- Conceptual Diagram -->
-<div class="relative aspect-square flex items-center justify-center">
-<div class="absolute inset-0 bg-primary/5 rounded-full blur-[120px]"></div>
-<!-- Core Anchor -->
-<div class="relative z-10 w-48 h-48 rounded-full border border-primary/20 flex items-center justify-center bg-surface-container-lowest shadow-[0_0_50px_rgba(0,229,255,0.1)]">
-<span class="text-primary font-headline font-bold text-3xl tracking-widest">SPACE</span>
-</div>
-<!-- Satellite Faces -->
-<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-4 text-center">
-<div class="glass-panel p-4 rounded-xl border border-outline-variant/30 tonal-glow">
-<span class="text-secondary font-headline font-bold block">Quality</span>
-<span class="text-xs text-on-surface-variant font-body">Verification</span>
-</div>
-</div>
-<div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-4 text-center">
-<div class="glass-panel p-4 rounded-xl border border-outline-variant/30 tonal-glow">
-<span class="text-secondary font-headline font-bold block">Intent</span>
-<span class="text-xs text-on-surface-variant font-body">Decisions</span>
-</div>
-</div>
-<div class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 text-center">
-<div class="glass-panel p-4 rounded-xl border border-outline-variant/30 tonal-glow">
-<span class="text-secondary font-headline font-bold block">Time</span>
-<span class="text-xs text-on-surface-variant font-body">Continuity</span>
-</div>
-</div>
-<div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 text-center">
-<div class="glass-panel p-4 rounded-xl border border-outline-variant/30 tonal-glow">
-<span class="text-secondary font-headline font-bold block">Dependencies</span>
-<span class="text-xs text-on-surface-variant font-body">Impact</span>
-</div>
-</div>
-<!-- Floating Flows -->
-<div class="absolute inset-0 pointer-events-none opacity-40">
-<svg class="w-full h-full fill-none stroke-primary/30 stroke-[0.5]" viewbox="0 0 400 400">
-<path d="M200,50 Q250,50 350,200 Q250,350 200,350 Q150,350 50,200 Q150,50 200,50"></path>
-<circle cx="200" cy="50" fill="currentColor" r="4"></circle>
-<circle cx="350" cy="200" fill="currentColor" r="4"></circle>
-<circle cx="200" cy="350" fill="currentColor" r="4"></circle>
-<circle cx="50" cy="200" fill="currentColor" r="4"></circle>
-</svg>
-</div>
+<!-- Conceptual Diagram (K-Shape Network) -->
+<div class="relative w-full aspect-square max-w-lg mx-auto flex items-center justify-center font-headline lg:translate-x-8">
+    <!-- Grid Background -->
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(0,229,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(0,229,255,0.08)_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_70%)] pointer-events-none"></div>
+    
+    <!-- SVG Connections for K-Shape -->
+    <svg class="absolute inset-0 w-full h-full pointer-events-none z-10" style="filter: drop-shadow(0 0 5px rgba(0,229,255,0.5))">
+        <!-- Vertical Line (1 -> 3 -> 4) -->
+        <line x1="25%" y1="20%" x2="25%" y2="80%" stroke="rgba(0, 229, 255, 0.4)" stroke-width="2" stroke-dasharray="4 4" class="animate-[dash_20s_linear_infinite]" />
+        <!-- Top Diagonal (3 -> 2) -->
+        <line x1="25%" y1="50%" x2="75%" y2="20%" stroke="rgba(0, 229, 255, 0.4)" stroke-width="2" stroke-dasharray="4 4" class="animate-[dash_20s_linear_infinite]" />
+        <!-- Bottom Diagonal (3 -> 5) -->
+        <line x1="25%" y1="50%" x2="75%" y2="80%" stroke="rgba(0, 229, 255, 0.4)" stroke-width="2" stroke-dasharray="4 4" class="animate-[dash_20s_linear_infinite]" />
+    </svg>
+
+    <style>
+        @keyframes dash {
+            to { stroke-dashoffset: -1000; }
+        }
+    </style>
+
+    <!-- Node 1: Dependencies (Top Left) -->
+    <div class="absolute top-[20%] left-[25%] -translate-x-1/2 -translate-y-1/2 z-20">
+        <div class="glass-panel w-24 h-16 border border-rose-400/50 flex flex-col items-center justify-center shadow-[4px_4px_0_0_rgba(244,63,94,0.3)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all bg-[#0b1326]/80 backdrop-blur-md relative cursor-default">
+            <div class="absolute -top-1 -left-1 w-1.5 h-1.5 bg-rose-400"></div>
+            <span class="text-rose-300 font-bold text-xs tracking-widest uppercase">Deps</span>
+        </div>
+    </div>
+
+    <!-- Node 2: Time (Top Right) -->
+    <div class="absolute top-[20%] left-[75%] -translate-x-1/2 -translate-y-1/2 z-20">
+        <div class="glass-panel w-24 h-16 border border-indigo-400/50 flex flex-col items-center justify-center shadow-[4px_4px_0_0_rgba(99,102,241,0.3)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all bg-[#0b1326]/80 backdrop-blur-md relative cursor-default">
+            <div class="absolute -top-1 -right-1 w-1.5 h-1.5 bg-indigo-400"></div>
+            <span class="text-indigo-300 font-bold text-xs tracking-widest uppercase">Time</span>
+        </div>
+    </div>
+
+    <!-- Node 3: SPACE (Center Left - Anchor) -->
+    <div class="absolute top-[50%] left-[25%] -translate-x-1/2 -translate-y-1/2 z-30">
+        <div class="relative w-28 h-28 bg-surface-variant/80 backdrop-blur-xl border border-cyan-400 flex flex-col items-center justify-center shadow-[6px_6px_0_0_rgba(0,229,255,0.3)] hover:translate-x-1 hover:translate-y-1 transition-all duration-300 group cursor-default">
+            <div class="absolute -top-1 -left-1 w-2 h-2 bg-cyan-300 group-hover:scale-150 transition-transform"></div>
+            <div class="absolute -bottom-1 -right-1 w-2 h-2 bg-cyan-300 group-hover:scale-150 transition-transform"></div>
+            <span class="material-symbols-outlined text-cyan-400 text-3xl mb-1 group-hover:animate-pulse">dns</span>
+            <span class="text-cyan-300 font-bold text-lg tracking-widest drop-shadow-[0_0_8px_rgba(0,229,255,0.5)]">SPACE</span>
+        </div>
+    </div>
+
+    <!-- Node 4: Intent (Bottom Left) -->
+    <div class="absolute top-[80%] left-[25%] -translate-x-1/2 -translate-y-1/2 z-20">
+        <div class="glass-panel w-24 h-16 border border-emerald-400/50 flex flex-col items-center justify-center shadow-[4px_4px_0_0_rgba(16,185,129,0.3)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all bg-[#0b1326]/80 backdrop-blur-md relative cursor-default">
+            <div class="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-emerald-400"></div>
+            <span class="text-emerald-300 font-bold text-xs tracking-widest uppercase">Intent</span>
+        </div>
+    </div>
+
+    <!-- Node 5: Quality (Bottom Right) -->
+    <div class="absolute top-[80%] left-[75%] -translate-x-1/2 -translate-y-1/2 z-20">
+        <div class="glass-panel w-24 h-16 border border-amber-400/50 flex flex-col items-center justify-center shadow-[4px_4px_0_0_rgba(245,158,11,0.3)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all bg-[#0b1326]/80 backdrop-blur-md relative cursor-default">
+            <div class="absolute -bottom-1 -right-1 w-1.5 h-1.5 bg-amber-400"></div>
+            <span class="text-amber-300 font-bold text-xs tracking-widest uppercase">Quality</span>
+        </div>
+    </div>
 </div>
 </section>
 <!-- Comparison Section -->
 <section class="py-24 bg-surface-container-lowest/50">
 <div class="max-w-7xl mx-auto px-8">
-<h2 class="text-4xl font-headline font-bold mb-16 text-center">Agents don't just need code context.<br/><span class="text-primary">They need state, boundaries, evidence, and continuity.</span></h2>
+<h2 class="text-4xl font-headline font-bold mb-16 text-center">
+    <span class="lang-en">Agents don't just need code context.<br/><span class="text-primary">They need state, boundaries, evidence, and continuity.</span></span>
+    <span class="lang-zh">Agents 需要的远不止代码上下文。<br/><span class="text-primary">它们更渴望状态、边界、证据与连续性。</span></span>
+</h2>
 <div class="grid md:grid-cols-2 gap-px bg-outline-variant/20 rounded-2xl overflow-hidden border border-outline-variant/20">
 <!-- Column Left: Legacy -->
 <div class="p-12 bg-surface">
-<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-6 block">Traditional Guesswork</span>
+<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-6 block"><span class="lang-en">Stateless Context</span><span class="lang-zh">无状态的上下文交互</span></span>
 <div class="space-y-12">
 <div class="flex gap-4">
-<span class="material-symbols-outlined text-error shrink-0">close</span>
+<span class="material-symbols-outlined text-outline shrink-0">radio_button_unchecked</span>
 <div>
-<h4 class="font-headline font-bold text-on-surface">Repo dumps or guesswork</h4>
-<p class="text-on-surface-variant text-sm mt-1 italic">Agent reads too much or misses the point.</p>
+<h4 class="font-headline font-bold text-on-surface"><span class="lang-en">Broad codebase scanning</span><span class="lang-zh">泛化的代码库检索</span></h4>
+<p class="text-on-surface-variant text-sm mt-1 italic"><span class="lang-en">Information density dilutes core instructions.</span><span class="lang-zh">过高的信息密度容易导致模型偏离焦点。</span></p>
 </div>
 </div>
 <div class="flex gap-4">
-<span class="material-symbols-outlined text-error shrink-0">close</span>
+<span class="material-symbols-outlined text-outline shrink-0">radio_button_unchecked</span>
 <div>
-<h4 class="font-headline font-bold text-on-surface">Lost excluded paths</h4>
-<p class="text-on-surface-variant text-sm mt-1 italic">Agent tries to edit node_modules or build files.</p>
+<h4 class="font-headline font-bold text-on-surface"><span class="lang-en">Unbounded execution scope</span><span class="lang-zh">隐晦的执行边界</span></h4>
+<p class="text-on-surface-variant text-sm mt-1 italic"><span class="lang-en">Agents may unintentionally process ignored or generated files.</span><span class="lang-zh">Agent 容易对配置、自动生成产物等非目标文件进行处理。</span></p>
 </div>
 </div>
 <div class="flex gap-4">
-<span class="material-symbols-outlined text-error shrink-0">close</span>
+<span class="material-symbols-outlined text-outline shrink-0">radio_button_unchecked</span>
 <div>
-<h4 class="font-headline font-bold text-on-surface">Validation radius explosion</h4>
-<p class="text-on-surface-variant text-sm mt-1 italic">A single change breaks 50 files silently.</p>
+<h4 class="font-headline font-bold text-on-surface"><span class="lang-en">Late-stage validation</span><span class="lang-zh">滞后的验证回路</span></h4>
+<p class="text-on-surface-variant text-sm mt-1 italic"><span class="lang-en">Errors cascade through the project before detection.</span><span class="lang-zh">错误往往在整个工作流执行完甚至提交后才暴露。</span></p>
 </div>
 </div>
 </div>
 </div>
 <!-- Column Right: Kenon -->
 <div class="p-12 bg-surface-container-low">
-<span class="text-xs font-label uppercase tracking-widest text-primary mb-6 block">Kenon Protocol</span>
+<span class="text-xs font-label uppercase tracking-widest text-primary mb-6 block"><span class="lang-en">Kenon Protocol</span><span class="lang-zh">Kenon 协议模式</span></span>
 <div class="space-y-12">
 <div class="flex gap-4">
 <span class="material-symbols-outlined text-primary shrink-0">check_circle</span>
 <div>
-<h4 class="font-headline font-bold text-on-surface">Scoped context loading</h4>
-<p class="text-on-surface-variant text-sm mt-1">Load exactly what matters for the scenario.</p>
+<h4 class="font-headline font-bold text-on-surface"><span class="lang-en">Scoped context loading</span><span class="lang-zh">按作用域精准加载</span></h4>
+<p class="text-on-surface-variant text-sm mt-1"><span class="lang-en">Load exactly what matters for the scenario.</span><span class="lang-zh">精确抽取对当前任务唯一且绝对相关的最小集合。</span></p>
 </div>
 </div>
 <div class="flex gap-4">
 <span class="material-symbols-outlined text-primary shrink-0">check_circle</span>
 <div>
-<h4 class="font-headline font-bold text-on-surface">Explicit boundaries</h4>
-<p class="text-on-surface-variant text-sm mt-1">Rigid exclusion rules enforced via <code>grounds</code>.</p>
+<h4 class="font-headline font-bold text-on-surface"><span class="lang-en">Explicit boundaries</span><span class="lang-zh">强制的硬性边界</span></h4>
+<p class="text-on-surface-variant text-sm mt-1"><span class="lang-en">Rigid exclusion rules enforced via <code>grounds</code>.</span><span class="lang-zh">通过内建的 <code>grounds</code> 原则强制阻止所有无效操作。</span></p>
 </div>
 </div>
 <div class="flex gap-4">
 <span class="material-symbols-outlined text-primary shrink-0">check_circle</span>
 <div>
-<h4 class="font-headline font-bold text-on-surface">Narrowed impact</h4>
-<p class="text-on-surface-variant text-sm mt-1">Verify downstream effects before committing.</p>
+<h4 class="font-headline font-bold text-on-surface"><span class="lang-en">Narrowed impact</span><span class="lang-zh">收紧变更影响面</span></h4>
+<p class="text-on-surface-variant text-sm mt-1"><span class="lang-en">Verify downstream effects before committing.</span><span class="lang-zh">在代码弄脏之前，验证它的所有潜在下游涟漪。</span></p>
 </div>
 </div>
 </div>
@@ -253,45 +318,120 @@
 <div class="grid grid-cols-1 md:grid-cols-6 grid-rows-2 gap-6 h-auto md:h-[600px]">
 <!-- Space: The Centerpiece -->
 <div class="md:col-span-3 md:row-span-2 glass-panel rounded-2xl p-10 border border-outline-variant/20 flex flex-col justify-center relative overflow-hidden group">
-<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/10 rounded-full blur-[80px] group-hover:bg-primary/20 transition-all"></div>
-<span class="text-primary font-headline text-5xl font-bold mb-4">Space</span>
-<h3 class="text-2xl font-headline font-medium text-on-surface mb-6">Paths &amp; Anchors</h3>
-<p class="text-on-surface-variant text-lg leading-relaxed">The foundational map of your repository. Defines where code lives, what it depends on, and the physical limits of an agent's workspace.</p>
-<div class="mt-8 flex gap-2">
-<span class="px-3 py-1 bg-surface-variant rounded-full text-xs text-on-surface-variant font-mono">.kenon/space/modules.jsonl</span>
-<span class="px-3 py-1 bg-surface-variant rounded-full text-xs text-on-surface-variant font-mono">scan-baseline.json</span>
-</div>
+    <!-- Abstract algorithmic background: Dynamic grid scanner -->
+    <div class="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(0,229,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(0,229,255,0.2)_1px,transparent_1px)] bg-[size:30px_30px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]"></div>
+        <div class="absolute w-full h-[2px] bg-cyan-400 shadow-[0_0_15px_rgba(0,229,255,0.8)] animate-[scan_3s_ease-in-out_infinite_alternate] top-0 left-0"></div>
+    </div>
+    
+    <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/10 rounded-full blur-[80px] group-hover:bg-primary/20 transition-all"></div>
+    <span class="text-primary font-headline text-5xl font-bold mb-4 relative z-10"><span class="lang-en">Space</span><span class="lang-zh">空间(Space)</span></span>
+    <h3 class="text-2xl font-headline font-medium text-on-surface mb-6 relative z-10"><span class="lang-en">Paths &amp; Anchors</span><span class="lang-zh">路径与锚点</span></h3>
+    <p class="text-on-surface-variant text-lg leading-relaxed relative z-10"><span class="lang-en">The foundational map of your repository. Defines where code lives, what it depends on, and the physical limits of an agent's workspace.</span><span class="lang-zh">代码仓库的基础地图。定义了代码位置、依赖关系以及 Agent 能够触碰的物理边界。</span></p>
+    <div class="mt-8 flex gap-2 relative z-10">
+        <span class="px-3 py-1 bg-surface-variant rounded-full text-xs text-on-surface-variant font-mono border border-cyan-500/20 shadow-[0_0_10px_rgba(0,229,255,0.1)]">.kenon/space/modules.jsonl</span>
+        <span class="px-3 py-1 bg-surface-variant rounded-full text-xs text-on-surface-variant font-mono border border-cyan-500/20 shadow-[0_0_10px_rgba(0,229,255,0.1)]">scan-baseline.json</span>
+    </div>
+    <style>
+        @keyframes scan {
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+    </style>
 </div>
 <!-- Time -->
-<div class="md:col-span-3 glass-panel rounded-2xl p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all">
-<div>
-<span class="text-secondary font-headline text-3xl font-bold mb-2 block">Time</span>
-<p class="text-on-surface-variant">Sessions &amp; Continuity. Track history beyond the chat prompt. Know what was tried and why.</p>
-</div>
-<span class="material-symbols-outlined text-secondary text-4xl self-end">history</span>
+<div class="md:col-span-3 glass-panel rounded-2xl p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all relative overflow-hidden group">
+    <!-- Algorithmic dynamic element: Shift register/timeline -->
+    <div class="absolute right-8 top-1/2 -translate-y-1/2 w-32 h-32 opacity-30 group-hover:opacity-60 transition-opacity">
+        <svg viewBox="0 0 100 100" class="w-full h-full stroke-secondary fill-none stroke-2">
+            <circle cx="50" cy="50" r="40" stroke-dasharray="4 8" class="animate-[spin_10s_linear_infinite]" />
+            <circle cx="50" cy="50" r="30" stroke-opacity="0.3" />
+            <path d="M50 50 L50 25" class="origin-bottom animate-[spin_2s_linear_infinite]" />
+            <path d="M50 50 L70 50" class="origin-left animate-[spin_12s_linear_infinite]" />
+            <!-- Commit dots flowing -->
+            <circle cx="50" cy="10" r="3" fill="currentColor" class="animate-ping" />
+        </svg>
+    </div>
+
+    <div class="relative z-10 w-2/3">
+        <span class="text-secondary font-headline text-3xl font-bold mb-2 block"><span class="lang-en">Time</span><span class="lang-zh">时间(Time)</span></span>
+        <p class="text-on-surface-variant"><span class="lang-en">Sessions &amp; Continuity. Track history beyond the chat prompt. Know what was tried and why.</span><span class="lang-zh">会话与连贯性。追踪提示词之外的全局历史，记住尝试过什么以及原因。</span></p>
+    </div>
+    <span class="material-symbols-outlined text-secondary text-4xl self-start mt-4 relative z-10 group-hover:scale-110 transition-transform">history</span>
 </div>
 <!-- Quality -->
-<div class="md:col-span-3 lg:col-span-1 glass-panel rounded-2xl p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all">
-<span class="text-secondary font-headline text-2xl font-bold">Quality</span>
-<p class="text-xs text-on-surface-variant">Verification &amp; Findings. Grounding truth in execution.</p>
+<div class="md:col-span-3 lg:col-span-1 glass-panel rounded-2xl p-6 lg:p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all relative overflow-hidden group">
+    <!-- Algorithmic dynamic element: Pulse lines -->
+    <div class="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-50 transition-opacity">
+        <svg fill="none" viewBox="0 0 100 100" class="w-full h-full stroke-success stroke-[0.5]">
+            <path d="M0 50 L30 50 L40 20 L60 80 L70 50 L100 50" class="animate-[dash_3s_linear_infinite]" stroke-dasharray="100" stroke-dashoffset="100"/>
+            <path d="M0 60 L100 60" stroke-opacity="0.2" />
+            <path d="M0 40 L100 40" stroke-opacity="0.2" />
+        </svg>
+    </div>
+    
+    <div class="relative z-10">
+        <span class="text-success font-headline text-2xl font-bold mb-2 block"><span class="lang-en">Quality</span><span class="lang-zh">质量</span></span>
+        <p class="text-on-surface-variant text-sm"><span class="lang-en">Verification &amp; Findings. Grounding truth in execution.</span><span class="lang-zh">验证与发现。以真实执行结果为基础的事实对齐。</span></p>
+    </div>
+    <span class="material-symbols-outlined text-success text-3xl self-end mt-4 relative z-10 group-hover:animate-bounce">verified</span>
 </div>
+
 <!-- Intent -->
-<div class="md:col-span-3 lg:col-span-1 glass-panel rounded-2xl p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all">
-<span class="text-secondary font-headline text-2xl font-bold">Intent</span>
-<p class="text-xs text-on-surface-variant">Decisions &amp; Exclusions. Explicit goals and forbidden paths.</p>
+<div class="md:col-span-3 lg:col-span-3 glass-panel rounded-2xl p-6 md:p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all relative overflow-hidden group">
+    <!-- Algorithmic dynamic element: Allowed vs Blocked paths -->
+    <div class="absolute right-0 top-0 w-1/2 h-full pointer-events-none opacity-20 group-hover:opacity-60 transition-opacity flex items-center justify-end pr-8">
+        <svg viewBox="0 0 100 100" class="w-32 h-32 stroke-2 fill-none">
+            <path d="M0 50 C 30 50, 40 20, 80 20" class="stroke-emerald-400 animate-[dash_2s_ease-out_infinite]" stroke-dasharray="10 5" />
+            <circle cx="80" cy="20" r="4" class="fill-emerald-400 stroke-none" />
+            <!-- Blocked path -->
+            <path d="M0 50 C 30 50, 40 80, 70 80" class="stroke-error/50" stroke-dasharray="4" />
+            <path d="M65 75 L75 85 M75 75 L65 85" class="stroke-error stroke-[3]" />
+        </svg>
+    </div>
+
+    <div class="relative z-10 w-2/3">
+        <span class="text-emerald-400 font-headline text-3xl font-bold mb-2 block"><span class="lang-en">Intent</span><span class="lang-zh">意图</span></span>
+        <p class="text-on-surface-variant"><span class="lang-en">Decisions &amp; Exclusions. Explicit goals and forbidden paths.</span><span class="lang-zh">决策与排除。明确的目标约束与禁止触碰的红线。</span></p>
+    </div>
+    <span class="material-symbols-outlined text-emerald-400 text-4xl self-start mt-4 relative z-10 group-hover:translate-x-2 transition-transform">track_changes</span>
 </div>
+
 <!-- Dependencies -->
-<div class="md:col-span-3 lg:col-span-1 glass-panel rounded-2xl p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all">
-<span class="text-secondary font-headline text-2xl font-bold">Dependencies</span>
-<p class="text-xs text-on-surface-variant">Dependency Analysis. Seeing the ripple effect.</p>
+<div class="md:col-span-3 lg:col-span-2 glass-panel rounded-2xl p-6 md:p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all relative overflow-hidden group">
+    <!-- Algorithmic dynamic element: Network Graph -->
+    <div class="absolute -right-4 -bottom-4 w-40 h-40 pointer-events-none opacity-20 group-hover:opacity-60 transition-opacity">
+        <svg viewBox="0 0 100 100" class="w-full h-full stroke-tertiary stroke-1 fill-tertiary">
+            <circle cx="50" cy="50" r="4" class="fill-tertiary cursor-pointer hover:r-6" />
+            <circle cx="20" cy="20" r="3" />
+            <circle cx="80" cy="30" r="3" />
+            <circle cx="70" cy="80" r="3" />
+            <circle cx="20" cy="70" r="3" />
+            <path d="M50 50 L20 20 M50 50 L80 30 M50 50 L70 80 M50 50 L20 70 M20 20 L80 30" class="stroke-tertiary/50 !fill-none animate-[ping_4s_linear_infinite]" />
+        </svg>
+    </div>
+
+    <div class="relative z-10 w-2/3">
+        <span class="text-tertiary font-headline text-3xl font-bold mb-2 block"><span class="lang-en">Dependencies</span><span class="lang-zh">依赖图</span></span>
+        <p class="text-on-surface-variant"><span class="lang-en">Dependency Analysis. Seeing the ripple effect.</span><span class="lang-zh">影响面分析。洞悉任何一次修改所引发的连锁反应。</span></p>
+    </div>
+    <span class="material-symbols-outlined text-tertiary text-4xl self-start mt-4 relative z-10 group-hover:rotate-12 transition-transform">account_tree</span>
 </div>
 </div>
 </section>
 <!-- The Loop -->
 <section class="py-24 bg-surface-container-lowest">
 <div class="max-w-7xl mx-auto px-8 text-center">
-<h2 class="text-4xl font-headline font-bold mb-4">A short loop for real work.</h2>
-<p class="text-on-surface-variant mb-16">The standard lifecycle for agent interaction.</p>
+<h2 class="text-4xl font-headline font-bold mb-4">
+    <span class="lang-en">A short loop for real work.</span>
+    <span class="lang-zh">主导真实工作的极简循环。</span>
+</h2>
+<p class="text-on-surface-variant mb-16">
+    <span class="lang-en">The standard lifecycle for agent interaction.</span>
+    <span class="lang-zh">规范化 Agent 交互的标准生命周期。</span>
+</p>
 <div class="flex flex-col md:flex-row justify-between items-center gap-8 relative">
 <!-- Connector Line (Hidden on mobile) -->
 <div class="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-outline-variant/50 to-transparent hidden md:block"></div>
@@ -335,16 +475,18 @@
 </div>
 </section>
 <!-- 3-Minute Demo -->
-<section id="fast-track" class="py-24 max-w-7xl mx-auto px-8">
-<div class="mb-16 text-center">
-<h2 class="text-4xl font-headline font-bold mb-4">3-Minute Fast Track</h2>
-<p class="text-on-surface-variant">Do it yourself, or just hand the keys to your agent.</p>
-</div>
+<section id="fast-track" class="py-24 border-t border-outline-variant/20 relative z-10 bg-[#0b1326]">
+<div class="max-w-7xl mx-auto px-8">
+<h2 class="text-4xl font-headline font-bold mb-4">
+    <span class="lang-en">3-Minute Fast Track</span>
+    <span class="lang-zh">三分钟快速上手</span>
+</h2>
+<p class="text-on-surface-variant mb-12 max-w-2xl text-lg"><span class="lang-en">Do it yourself, or just hand the keys to your agent.</span><span class="lang-zh">亲自操作，或者把钥匙直接交给 Agent。</span></p>
 <div class="grid lg:grid-cols-2 gap-12">
 <!-- CLI Terminal -->
 <div class="flex flex-col h-full space-y-4">
-<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant block">Do It Yourself</span>
-<div class="bg-[#060e20] rounded-2xl border border-outline-variant/30 overflow-hidden shadow-2xl flex-grow h-full">
+<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant block"><span class="lang-en">Do It Yourself</span><span class="lang-zh">手动集成</span></span>
+<div class="bg-[#060e20] rounded-none pixel-border border-outline-variant/30 overflow-hidden pixel-shadow flex-grow h-full">
 <div class="flex items-center gap-2 px-6 py-4 bg-surface-container border-b border-outline-variant/20">
 <div class="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/40"></div>
 <div class="w-3 h-3 rounded-full bg-amber-500/20 border border-amber-500/40"></div>
@@ -389,20 +531,26 @@
 
 <!-- Copy to Agent -->
 <div class="flex flex-col h-full space-y-4">
-<span class="text-xs font-label uppercase tracking-widest text-primary block">Delegate To Agent</span>
-<div class="glass-panel p-8 rounded-2xl border border-outline-variant/30 flex flex-col h-full bg-surface-container-low relative shadow-2xl">
-<h3 class="text-2xl font-headline font-bold text-on-surface mb-2">Prompt Drop-in</h3>
-<p class="text-on-surface-variant text-sm mb-6">Drop this straight into your agent. It will install and configure Kenon.</p>
-<div class="bg-[#0b1326] p-6 rounded-xl border border-outline-variant/20 font-mono text-sm text-secondary-fixed flex-grow overflow-x-auto relative group">
-<pre id="agent-prompt-text" class="whitespace-pre-wrap leading-relaxed text-[#bac3ff]">请先在这个仓库里安装并初始化 Kenon。
+<span class="text-xs font-label uppercase tracking-widest text-primary block"><span class="lang-en">Delegate To Agent</span><span class="lang-zh">委托代理</span></span>
+<div class="glass-panel p-8 rounded-none pixel-border border-outline-variant/30 flex flex-col h-full bg-surface-container-low relative pixel-shadow">
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-2"><span class="lang-en">Prompt Drop-in</span><span class="lang-zh">注入提示词</span></h3>
+<p class="text-on-surface-variant text-sm mb-6"><span class="lang-en">Drop this straight into your agent. It will install and configure Kenon.</span><span class="lang-zh">直接粘贴这段提示词发给 Agent 进行原生初始化。</span></p>
+<div class="bg-[#0b1326] p-6 rounded-none pixel-border border-outline-variant/20 font-mono text-sm text-secondary-fixed flex-grow overflow-x-auto relative group">
+<pre id="agent-prompt-zh" class="lang-zh whitespace-pre-wrap leading-relaxed text-[#bac3ff]">请先在这个仓库里安装并初始化 Kenon。
 1. 运行 `git clone https://github.com/kenon-ai/kenon.git` 
 2. 运行 `kenon run onboard`
 3. 运行 `kenon load --global --scenario edit`
 4. 告诉我这个仓库最值得先看的模块和原因
 5. 后续在变更前默认先经过 `check --diff`</pre>
+<pre id="agent-prompt-en" class="lang-en whitespace-pre-wrap leading-relaxed text-[#bac3ff]">Please install and initialize Kenon in this repository first.
+1. Run `git clone https://github.com/kenon-ai/kenon.git`
+2. Run `kenon run onboard`
+3. Run `kenon load --global --scenario edit`
+4. Tell me which module in this repository is most worth looking at first and why.
+5. In future changes, always pass through `check --diff` by default.</pre>
 </div>
-<button onclick="copyPrompt()" class="absolute bottom-12 right-12 bg-surface-variant hover:bg-surface-bright text-on-surface py-2 px-3 rounded-lg transition-all border border-outline-variant/20 hover:border-primary/50 text-xs flex items-center gap-2 cursor-pointer outline-none">
-<span class="material-symbols-outlined text-[16px]">content_copy</span> <span id="copy-btn-text">Copy</span>
+<button onclick="copyPrompt()" class="absolute bottom-12 right-12 bg-surface-variant hover:bg-surface-bright text-on-surface py-2 px-3 rounded-none pixel-border transition-all hover:border-primary/50 text-xs flex items-center gap-2 cursor-pointer outline-none">
+<span class="material-symbols-outlined text-[16px]">content_copy</span> <span id="copy-btn-text"><span class="lang-en">Copy</span><span class="lang-zh">复制</span></span>
 </button>
 </div>
 </div>
@@ -420,12 +568,15 @@
 <!-- Integrations -->
 <section class="py-24 border-y border-outline-variant/10">
 <div class="max-w-7xl mx-auto px-8 text-center">
-<h3 class="text-sm font-label uppercase tracking-widest text-on-surface-variant mb-12">One protocol layer. Multiple runtimes.</h3>
+<h3 class="text-sm font-label uppercase tracking-widest text-on-surface-variant mb-12">
+    <span class="lang-en">One protocol layer. Multiple runtimes.</span>
+    <span class="lang-zh">单层协议，多重运行环境组合。</span>
+</h3>
 <div class="flex flex-wrap justify-center gap-12 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
 <span class="text-2xl font-headline font-bold">Claude Code</span>
 <span class="text-2xl font-headline font-bold">Cursor</span>
 <span class="text-2xl font-headline font-bold">Atomon</span>
-<span class="text-2xl font-headline font-bold">Official Codex</span>
+<span class="text-2xl font-headline font-bold">Codex</span>
 <span class="text-2xl font-headline font-bold">GitHub Copilot</span>
 <span class="text-2xl font-headline font-bold">OpenCode</span>
 <span class="text-2xl font-headline font-bold">Pi</span>
@@ -435,43 +586,49 @@
 <!-- Contrast Table -->
 <section class="py-24 max-w-7xl mx-auto px-8">
 <div class="mb-16">
-<h2 class="text-4xl font-headline font-bold mb-4 text-center">Not a Workflow Tool.</h2>
-<p class="text-center text-on-surface-variant">Kenon is the infra beneath the automation.</p>
+<h2 class="text-4xl font-headline font-bold mb-4 text-center">
+    <span class="lang-en">Not a Workflow Tool.</span>
+    <span class="lang-zh">并非另一款 Workflow 工具。</span>
+</h2>
+<p class="text-center text-on-surface-variant">
+    <span class="lang-en">Kenon is the infra beneath the automation.</span>
+    <span class="lang-zh">Kenon 是构建在自动化之下的核心层基础设施。</span>
+</p>
 </div>
 <div class="overflow-x-auto no-scrollbar">
 <table class="w-full text-left border-collapse">
 <thead>
 <tr class="border-b border-outline-variant/20">
-<th class="pb-6 font-headline font-bold text-lg">Feature</th>
-<th class="pb-6 font-headline font-bold text-lg text-on-surface-variant">Workflow Tools</th>
+<th class="pb-6 font-headline font-bold text-lg"><span class="lang-en">Feature</span><span class="lang-zh">特性</span></th>
+<th class="pb-6 font-headline font-bold text-lg text-on-surface-variant"><span class="lang-en">Workflow Tools</span><span class="lang-zh">Workflow 工具</span></th>
 <th class="pb-6 font-headline font-bold text-lg text-primary">Kenon</th>
 </tr>
 </thead>
 <tbody class="text-on-surface-variant">
 <tr class="border-b border-outline-variant/10">
-<td class="py-8 font-headline font-bold text-on-surface">Primary Purpose</td>
-<td class="py-8">Organize tasks &amp; specs</td>
-<td class="py-8 text-on-surface">Local protocol layer</td>
+<td class="py-8 font-headline font-bold text-on-surface"><span class="lang-en">Primary Purpose</span><span class="lang-zh">核心目标</span></td>
+<td class="py-8"><span class="lang-en">Organize tasks &amp; specs</span><span class="lang-zh">组织任务与需求规范</span></td>
+<td class="py-8 text-on-surface"><span class="lang-en">Local protocol layer</span><span class="lang-zh">本地标准协议层</span></td>
 </tr>
 <tr class="border-b border-outline-variant/10">
-<td class="py-8 font-headline font-bold text-on-surface">Context Logic</td>
-<td class="py-8">RAG or full-repo dump</td>
-<td class="py-8 text-on-surface">Scoped context loading</td>
+<td class="py-8 font-headline font-bold text-on-surface"><span class="lang-en">Context Logic</span><span class="lang-zh">上下文逻辑</span></td>
+<td class="py-8"><span class="lang-en">RAG or full-repo context</span><span class="lang-zh">RAG 向量检索或代码片段</span></td>
+<td class="py-8 text-on-surface"><span class="lang-en">Scoped context loading</span><span class="lang-zh">按作用域精准组装与装载</span></td>
 </tr>
 <tr class="border-b border-outline-variant/10">
-<td class="py-8 font-headline font-bold text-on-surface">Safety</td>
-<td class="py-8">User-confirmed changes</td>
-<td class="py-8 text-on-surface">Explicit boundaries &amp; grounds</td>
+<td class="py-8 font-headline font-bold text-on-surface"><span class="lang-en">Safety</span><span class="lang-zh">安全机制</span></td>
+<td class="py-8"><span class="lang-en">Post-execution review</span><span class="lang-zh">基于版本控制的事后 Review</span></td>
+<td class="py-8 text-on-surface"><span class="lang-en">Explicit boundaries &amp; grounds</span><span class="lang-zh">强制的读写隔离与不可改白名单</span></td>
 </tr>
 <tr class="border-b border-outline-variant/10">
-<td class="py-8 font-headline font-bold text-on-surface">Memory</td>
-<td class="py-8">Chat session history</td>
-<td class="py-8 text-on-surface">Written back to repo</td>
+<td class="py-8 font-headline font-bold text-on-surface"><span class="lang-en">Memory</span><span class="lang-zh">记忆流转</span></td>
+<td class="py-8"><span class="lang-en">Session-bound (cleared over time)</span><span class="lang-zh">依附于对话引擎的会话生命周期</span></td>
+<td class="py-8 text-on-surface"><span class="lang-en">Written back to repo</span><span class="lang-zh">结构化回写至代码库长青存储</span></td>
 </tr>
 <tr>
-<td class="py-8 font-headline font-bold text-on-surface">Core Loop</td>
-<td class="py-8">Heavy LLM dependency</td>
-<td class="py-8 text-on-surface">Deterministic, zero-LLM protocol</td>
+<td class="py-8 font-headline font-bold text-on-surface"><span class="lang-en">Core Loop</span><span class="lang-zh">核心引擎</span></td>
+<td class="py-8"><span class="lang-en">LLM-driven task orchestration</span><span class="lang-zh">由大模型主导任务调度与统筹</span></td>
+<td class="py-8 text-on-surface"><span class="lang-en">Deterministic zero-dependency main chain using algorithmic folding</span><span class="lang-zh">零依赖的确定性主链，依靠本地算法进行状态折叠</span></td>
 </tr>
 </tbody>
 </table>
@@ -495,16 +652,210 @@
 </footer>
 <script>
     function copyPrompt() {
-        const textToCopy = document.getElementById('agent-prompt-text').innerText;
+        const textToCopy = document.body.getAttribute('data-lang') === 'zh' 
+            ? document.getElementById('agent-prompt-zh').innerText 
+            : document.getElementById('agent-prompt-en').innerText;
         navigator.clipboard.writeText(textToCopy).then(() => {
             const btnText = document.getElementById('copy-btn-text');
-            btnText.innerText = 'Copied!';
+            btnText.innerText = document.body.getAttribute('data-lang') === 'zh' ? '已复制!' : 'Copied!';
             setTimeout(() => {
-                btnText.innerText = 'Copy';
+                btnText.innerHTML = '<span class="lang-en">Copy</span><span class="lang-zh">复制</span>';
             }, 2000);
         }).catch(err => {
             console.error('Failed to copy text: ', err);
         });
     }
+</script>
+<script type="module">
+    import { prepareWithSegments, layoutWithLines } from 'https://esm.sh/@chenglou/pretext@0.0.4';
+
+    class GlitchTextEffect {
+        constructor(element) {
+            this.element = element;
+            
+            // Set up canvas
+            this.canvas = document.createElement('canvas');
+            this.ctx = this.canvas.getContext('2d');
+            this.canvas.style.position = 'absolute';
+            this.canvas.style.top = '0';
+            this.canvas.style.left = '0';
+            this.canvas.style.pointerEvents = 'none';
+            this.element.style.position = 'relative';
+            
+            // Hide original text but keep DOM layout
+            Array.from(this.element.children).forEach(child => child.style.opacity = '0');
+            if (this.element.children.length === 0) {
+                const textNode = this.element.firstChild;
+                if (textNode) {
+                    const span = document.createElement('span');
+                    span.style.opacity = '0';
+                    span.textContent = textNode.textContent;
+                    this.element.replaceChild(span, textNode);
+                }
+            }
+            this.element.appendChild(this.canvas);
+            
+            // Detect font styles
+            const computed = window.getComputedStyle(this.element);
+            this.fontFamily = computed.fontFamily;
+            this.fontWeight = computed.fontWeight;
+            this.fontSize = computed.fontSize;
+            this.lineHeightStr = computed.lineHeight;
+            this.lineHeight = parseFloat(this.lineHeightStr) || (parseFloat(this.fontSize) * 1.5);
+            this.color = computed.color;
+            this.fontString = `${this.fontWeight} ${this.fontSize} ${this.fontFamily}`;
+            
+            this.progress = 0;
+            this.lines = [];
+            this.chars = '!<>-_\\\\/[]{}—=+*^?#________';
+            this.isAnimating = false;
+            
+            this.updateText();
+            this.initObserver();
+            this.start();
+        }
+
+        updateText() {
+            const isZh = document.body.getAttribute('data-lang') === 'zh';
+            const enSpan = this.element.querySelector('.lang-en');
+            const zhSpan = this.element.querySelector('.lang-zh');
+            
+            if (enSpan && zhSpan) {
+                this.currentSpan = isZh ? zhSpan : enSpan;
+                this.currentText = isZh ? zhSpan.innerText : enSpan.innerText;
+            } else {
+                this.currentSpan = this.element;
+                this.currentText = this.element.innerText.trim();
+            }
+        }
+
+        initObserver() {
+            const observer = new ResizeObserver(() => {
+                const computed = window.getComputedStyle(this.currentSpan || this.element);
+                this.fontFamily = computed.fontFamily;
+                this.fontWeight = computed.fontWeight;
+                this.fontSize = computed.fontSize;
+                this.lineHeightStr = computed.lineHeight;
+                this.lineHeight = parseFloat(this.lineHeightStr) || (parseFloat(this.fontSize) * 1.5);
+                this.fontString = `${this.fontWeight} ${this.fontSize} ${this.fontFamily}`;
+                this.measure();
+            });
+            observer.observe(this.element);
+            
+            // observe language changes
+            const langObserver = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.attributeName === 'data-lang') {
+                        this.updateText();
+                        // wait a tick for fonts/layout to apply if any
+                        setTimeout(() => this.start(), 50);
+                    }
+                });
+            });
+            langObserver.observe(document.body, { attributes: true });
+        }
+
+        measure() {
+            const width = this.element.clientWidth;
+            if (width === 0) return;
+            
+            // Re-fetch computed font in case media queries changed sizes
+            const currentComputed = window.getComputedStyle(this.currentSpan || this.element);
+            this.fontString = `${currentComputed.fontWeight} ${currentComputed.fontSize} ${currentComputed.fontFamily}`;
+            this.lineHeight = parseFloat(currentComputed.lineHeight) || (parseFloat(currentComputed.fontSize) * 1.5);
+            
+            const prepared = prepareWithSegments(this.currentText, this.fontString);
+            const { height, lines } = layoutWithLines(prepared, width, this.lineHeight);
+            
+            this.lines = lines;
+            
+            const dpr = window.devicePixelRatio || 1;
+            this.canvas.width = width * dpr;
+            this.canvas.height = height * dpr;
+            this.canvas.style.width = `${width}px`;
+            this.canvas.style.height = `${height}px`;
+            
+            this.ctx.scale(dpr, dpr);
+            this.ctx.textBaseline = 'top';
+            
+            if (!this.isAnimating) {
+                this.render(1);
+            }
+        }
+
+        start() {
+            this.measure();
+            this.progress = 0;
+            this.isAnimating = true;
+            this.startTime = performance.now();
+            this.animate();
+        }
+
+        animate() {
+            if (!this.isAnimating) return;
+            
+            const now = performance.now();
+            const elapsed = Math.max(0, now - this.startTime);
+            const duration = 1500; // 1.5s
+            
+            this.progress = Math.min(1, elapsed / duration);
+            const easeProgress = 1 - Math.pow(1 - this.progress, 3);
+            
+            this.render(easeProgress);
+            
+            if (this.progress < 1) {
+                requestAnimationFrame(() => this.animate());
+            } else {
+                this.isAnimating = false;
+                this.render(1);
+            }
+        }
+
+        render(p) {
+            this.ctx.clearRect(0, 0, this.canvas.width / (window.devicePixelRatio || 1), this.canvas.height / (window.devicePixelRatio || 1));
+            this.ctx.font = this.fontString;
+            
+            const currentComputed = window.getComputedStyle(this.element);
+            this.ctx.fillStyle = currentComputed.color;
+            
+            let y = 0;
+            for (let i = 0; i < this.lines.length; i++) {
+                const line = this.lines[i];
+                let x = 0;
+                
+                // Basic center alignment fallback if needed
+                if (currentComputed.textAlign === 'center') {
+                    x = (this.element.clientWidth - line.width) / 2;
+                }
+                
+                for (let j = 0; j < line.text.length; j++) {
+                    const char = line.text[j];
+                    const charWidth = this.ctx.measureText(char).width;
+                    
+                    const threshold = (i * 0.15) + (j / line.text.length) * 0.6;
+                    
+                    if (p >= 1 || p > threshold + 0.2) {
+                        this.ctx.fillText(char, x, y);
+                    } else if (p > threshold) {
+                        if (char.trim() !== '') {
+                            const randomChar = this.chars[Math.floor(Math.random() * this.chars.length)];
+                            this.ctx.globalAlpha = 0.4 + Math.random() * 0.6;
+                            this.ctx.fillText(randomChar, x, y);
+                            this.ctx.globalAlpha = 1.0;
+                        }
+                    }
+                    x += charWidth;
+                }
+                y += this.lineHeight;
+            }
+        }
+    }
+
+    window.addEventListener('load', () => {
+        // slight delay to ensure fonts and styles are fully applied
+        setTimeout(() => {
+            document.querySelectorAll('.hero-effect').forEach(el => new GlitchTextEffect(el));
+        }, 300);
+    });
 </script>
 </body></html>
