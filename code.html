@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kenon | The local context layer for coding agents</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface": "#0b1326",
+                      "outline-variant": "#3b494c",
+                      "tertiary-container": "#c3d2e8",
+                      "secondary": "#bac3ff",
+                      "tertiary-fixed": "#d4e4fa",
+                      "surface-tint": "#00daf3",
+                      "on-tertiary-fixed-variant": "#39485a",
+                      "surface-container": "#171f33",
+                      "error-container": "#93000a",
+                      "primary-container": "#00e5ff",
+                      "outline": "#849396",
+                      "on-secondary-fixed": "#00105b",
+                      "on-tertiary-fixed": "#0d1c2d",
+                      "secondary-fixed": "#dee0ff",
+                      "background": "#0b1326",
+                      "error": "#ffb4ab",
+                      "surface-dim": "#0b1326",
+                      "secondary-container": "#2f3f92",
+                      "tertiary": "#e3eeff",
+                      "on-surface": "#dae2fd",
+                      "surface-container-high": "#222a3d",
+                      "primary-fixed": "#9cf0ff",
+                      "tertiary-fixed-dim": "#b9c8de",
+                      "on-primary": "#00363d",
+                      "primary": "#c3f5ff",
+                      "surface-container-low": "#131b2e",
+                      "on-background": "#dae2fd",
+                      "secondary-fixed-dim": "#bac3ff",
+                      "surface-variant": "#2d3449",
+                      "surface-container-highest": "#2d3449",
+                      "on-error-container": "#ffdad6",
+                      "on-primary-fixed": "#001f24",
+                      "on-secondary-container": "#a3b0ff",
+                      "on-secondary-fixed-variant": "#2f3f92",
+                      "on-secondary": "#15267b",
+                      "on-primary-fixed-variant": "#004f58",
+                      "surface-container-lowest": "#060e20",
+                      "on-tertiary": "#233143",
+                      "on-primary-container": "#00626e",
+                      "on-surface-variant": "#bac9cc",
+                      "inverse-surface": "#dae2fd",
+                      "on-error": "#690005",
+                      "on-tertiary-container": "#4c5a6d",
+                      "surface-bright": "#31394d",
+                      "inverse-primary": "#006875",
+                      "primary-fixed-dim": "#00daf3",
+                      "inverse-on-surface": "#283044"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Space Grotesk"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0b1326;
+            background-image: radial-gradient(circle at top right, #171f33 0%, #0b1326 60%);
+            color: #dae2fd;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(45, 52, 73, 0.4);
+            backdrop-filter: blur(12px);
+        }
+        .tonal-glow {
+            box-shadow: 0 0 40px -10px rgba(0, 229, 255, 0.15);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-xl">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold tracking-tighter text-cyan-400 font-['Space_Grotesk']">Kenon</span>
+<div class="hidden md:flex gap-6">
+<a class="text-cyan-400 font-semibold font-['Space_Grotesk'] text-sm tracking-tight hover:text-cyan-300 transition-colors duration-300" href="https://github.com/kenon-ai/kenon/tree/main/docs">Docs</a>
+<a class="text-slate-300 font-['Space_Grotesk'] text-sm tracking-tight hover:text-cyan-300 transition-colors duration-300" href="https://github.com/kenon-ai/kenon">GitHub</a>
+<a class="text-slate-300 font-['Space_Grotesk'] text-sm tracking-tight hover:text-cyan-300 transition-colors duration-300" href="https://github.com/kenon-ai/kenon/blob/main/AGENTS.md">AGENTS.md</a>
+</div>
+</div>
+<a href="#fast-track" class="bg-primary-container text-on-primary-container px-5 py-2 rounded-lg font-['Space_Grotesk'] text-sm font-bold scale-95 active:opacity-80 transition-all hover:shadow-[0_0_15px_rgba(0,229,255,0.4)] inline-block">
+                Get Started
+            </a>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-8 py-20 lg:py-32 grid lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<h1 class="text-6xl lg:text-8xl font-headline font-bold leading-[0.9] tracking-tighter text-primary">
+                    Kenon
+                </h1>
+<p class="text-2xl lg:text-3xl font-headline text-on-surface-variant font-medium leading-tight">
+                    The local context layer for coding agents.
+                </p>
+<p class="text-lg text-on-surface-variant max-w-xl leading-relaxed">
+                    Keep agents grounded in state, boundaries, evidence, and continuity. A repo-local protocol for project memory and safety guardrails.
+                </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<a href="#fast-track" class="bg-primary-container text-on-primary-container px-8 py-4 rounded-xl font-headline font-bold text-lg hover:shadow-[0_0_20px_rgba(0,229,255,0.3)] transition-all inline-block">
+                        Get Started
+                    </a>
+<a href="https://github.com/kenon-ai/kenon" class="border border-outline-variant text-on-surface px-8 py-4 rounded-xl font-headline font-bold text-lg hover:bg-surface-container-high transition-all inline-block">
+                        View on GitHub
+                    </a>
+</div>
+</div>
+<!-- Conceptual Diagram -->
+<div class="relative aspect-square flex items-center justify-center">
+<div class="absolute inset-0 bg-primary/5 rounded-full blur-[120px]"></div>
+<!-- Core Anchor -->
+<div class="relative z-10 w-48 h-48 rounded-full border border-primary/20 flex items-center justify-center bg-surface-container-lowest shadow-[0_0_50px_rgba(0,229,255,0.1)]">
+<span class="text-primary font-headline font-bold text-3xl tracking-widest">SPACE</span>
+</div>
+<!-- Satellite Faces -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-4 text-center">
+<div class="glass-panel p-4 rounded-xl border border-outline-variant/30 tonal-glow">
+<span class="text-secondary font-headline font-bold block">Quality</span>
+<span class="text-xs text-on-surface-variant font-body">Verification</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-4 text-center">
+<div class="glass-panel p-4 rounded-xl border border-outline-variant/30 tonal-glow">
+<span class="text-secondary font-headline font-bold block">Intent</span>
+<span class="text-xs text-on-surface-variant font-body">Decisions</span>
+</div>
+</div>
+<div class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 text-center">
+<div class="glass-panel p-4 rounded-xl border border-outline-variant/30 tonal-glow">
+<span class="text-secondary font-headline font-bold block">Time</span>
+<span class="text-xs text-on-surface-variant font-body">Continuity</span>
+</div>
+</div>
+<div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 text-center">
+<div class="glass-panel p-4 rounded-xl border border-outline-variant/30 tonal-glow">
+<span class="text-secondary font-headline font-bold block">Dependencies</span>
+<span class="text-xs text-on-surface-variant font-body">Impact</span>
+</div>
+</div>
+<!-- Floating Flows -->
+<div class="absolute inset-0 pointer-events-none opacity-40">
+<svg class="w-full h-full fill-none stroke-primary/30 stroke-[0.5]" viewbox="0 0 400 400">
+<path d="M200,50 Q250,50 350,200 Q250,350 200,350 Q150,350 50,200 Q150,50 200,50"></path>
+<circle cx="200" cy="50" fill="currentColor" r="4"></circle>
+<circle cx="350" cy="200" fill="currentColor" r="4"></circle>
+<circle cx="200" cy="350" fill="currentColor" r="4"></circle>
+<circle cx="50" cy="200" fill="currentColor" r="4"></circle>
+</svg>
+</div>
+</div>
+</section>
+<!-- Comparison Section -->
+<section class="py-24 bg-surface-container-lowest/50">
+<div class="max-w-7xl mx-auto px-8">
+<h2 class="text-4xl font-headline font-bold mb-16 text-center">Agents don't just need code context.<br/><span class="text-primary">They need state, boundaries, evidence, and continuity.</span></h2>
+<div class="grid md:grid-cols-2 gap-px bg-outline-variant/20 rounded-2xl overflow-hidden border border-outline-variant/20">
+<!-- Column Left: Legacy -->
+<div class="p-12 bg-surface">
+<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-6 block">Traditional Guesswork</span>
+<div class="space-y-12">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-error shrink-0">close</span>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Repo dumps or guesswork</h4>
+<p class="text-on-surface-variant text-sm mt-1 italic">Agent reads too much or misses the point.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-error shrink-0">close</span>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Lost excluded paths</h4>
+<p class="text-on-surface-variant text-sm mt-1 italic">Agent tries to edit node_modules or build files.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-error shrink-0">close</span>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Validation radius explosion</h4>
+<p class="text-on-surface-variant text-sm mt-1 italic">A single change breaks 50 files silently.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Column Right: Kenon -->
+<div class="p-12 bg-surface-container-low">
+<span class="text-xs font-label uppercase tracking-widest text-primary mb-6 block">Kenon Protocol</span>
+<div class="space-y-12">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary shrink-0">check_circle</span>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Scoped context loading</h4>
+<p class="text-on-surface-variant text-sm mt-1">Load exactly what matters for the scenario.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary shrink-0">check_circle</span>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Explicit boundaries</h4>
+<p class="text-on-surface-variant text-sm mt-1">Rigid exclusion rules enforced via <code>grounds</code>.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary shrink-0">check_circle</span>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Narrowed impact</h4>
+<p class="text-on-surface-variant text-sm mt-1">Verify downstream effects before committing.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The 5 Dimensions (Bento Grid Style) -->
+<section class="py-24 max-w-7xl mx-auto px-8">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-4xl font-headline font-bold">One anchor, four faces.</h2>
+<p class="text-on-surface-variant">The dimensional model of agent context.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-6 grid-rows-2 gap-6 h-auto md:h-[600px]">
+<!-- Space: The Centerpiece -->
+<div class="md:col-span-3 md:row-span-2 glass-panel rounded-2xl p-10 border border-outline-variant/20 flex flex-col justify-center relative overflow-hidden group">
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/10 rounded-full blur-[80px] group-hover:bg-primary/20 transition-all"></div>
+<span class="text-primary font-headline text-5xl font-bold mb-4">Space</span>
+<h3 class="text-2xl font-headline font-medium text-on-surface mb-6">Paths &amp; Anchors</h3>
+<p class="text-on-surface-variant text-lg leading-relaxed">The foundational map of your repository. Defines where code lives, what it depends on, and the physical limits of an agent's workspace.</p>
+<div class="mt-8 flex gap-2">
+<span class="px-3 py-1 bg-surface-variant rounded-full text-xs text-on-surface-variant font-mono">.kenon/space/modules.jsonl</span>
+<span class="px-3 py-1 bg-surface-variant rounded-full text-xs text-on-surface-variant font-mono">scan-baseline.json</span>
+</div>
+</div>
+<!-- Time -->
+<div class="md:col-span-3 glass-panel rounded-2xl p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all">
+<div>
+<span class="text-secondary font-headline text-3xl font-bold mb-2 block">Time</span>
+<p class="text-on-surface-variant">Sessions &amp; Continuity. Track history beyond the chat prompt. Know what was tried and why.</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-4xl self-end">history</span>
+</div>
+<!-- Quality -->
+<div class="md:col-span-3 lg:col-span-1 glass-panel rounded-2xl p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all">
+<span class="text-secondary font-headline text-2xl font-bold">Quality</span>
+<p class="text-xs text-on-surface-variant">Verification &amp; Findings. Grounding truth in execution.</p>
+</div>
+<!-- Intent -->
+<div class="md:col-span-3 lg:col-span-1 glass-panel rounded-2xl p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all">
+<span class="text-secondary font-headline text-2xl font-bold">Intent</span>
+<p class="text-xs text-on-surface-variant">Decisions &amp; Exclusions. Explicit goals and forbidden paths.</p>
+</div>
+<!-- Dependencies -->
+<div class="md:col-span-3 lg:col-span-1 glass-panel rounded-2xl p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all">
+<span class="text-secondary font-headline text-2xl font-bold">Dependencies</span>
+<p class="text-xs text-on-surface-variant">Dependency Analysis. Seeing the ripple effect.</p>
+</div>
+</div>
+</section>
+<!-- The Loop -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto px-8 text-center">
+<h2 class="text-4xl font-headline font-bold mb-4">A short loop for real work.</h2>
+<p class="text-on-surface-variant mb-16">The standard lifecycle for agent interaction.</p>
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 relative">
+<!-- Connector Line (Hidden on mobile) -->
+<div class="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-outline-variant/50 to-transparent hidden md:block"></div>
+<div class="z-10 group">
+<div class="w-20 h-20 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">download</span>
+</div>
+<span class="font-headline font-bold block">load</span>
+</div>
+<div class="z-10 group">
+<div class="w-20 h-20 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">fact_check</span>
+</div>
+<span class="font-headline font-bold block">check</span>
+</div>
+<div class="z-10 group">
+<div class="w-20 h-20 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">hub</span>
+</div>
+<span class="font-headline font-bold block">impact</span>
+</div>
+<div class="z-10 group">
+<div class="w-20 h-20 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">verified</span>
+</div>
+<span class="font-headline font-bold block">verify</span>
+</div>
+<div class="z-10 group">
+<div class="w-20 h-20 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">save</span>
+</div>
+<span class="font-headline font-bold block">save</span>
+</div>
+<div class="z-10 group">
+<div class="w-20 h-20 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">done_all</span>
+</div>
+<span class="font-headline font-bold block">finalize</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3-Minute Demo -->
+<section id="fast-track" class="py-24 max-w-7xl mx-auto px-8">
+<div class="mb-16 text-center">
+<h2 class="text-4xl font-headline font-bold mb-4">3-Minute Fast Track</h2>
+<p class="text-on-surface-variant">Do it yourself, or just hand the keys to your agent.</p>
+</div>
+<div class="grid lg:grid-cols-2 gap-12">
+<!-- CLI Terminal -->
+<div class="flex flex-col h-full space-y-4">
+<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant block">Do It Yourself</span>
+<div class="bg-[#060e20] rounded-2xl border border-outline-variant/30 overflow-hidden shadow-2xl flex-grow h-full">
+<div class="flex items-center gap-2 px-6 py-4 bg-surface-container border-b border-outline-variant/20">
+<div class="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/40"></div>
+<div class="w-3 h-3 rounded-full bg-amber-500/20 border border-amber-500/40"></div>
+<div class="w-3 h-3 rounded-full bg-emerald-500/20 border border-emerald-500/40"></div>
+<span class="ml-4 text-xs font-mono text-on-surface-variant opacity-50">bash — 80x24</span>
+</div>
+<div class="p-8 font-mono text-sm sm:text-base space-y-4">
+<div class="flex gap-4">
+<span class="text-primary/50">$</span>
+<span class="text-on-surface">npm install -g @kenon-ai/cli</span>
+</div>
+<div class="text-on-surface-variant opacity-70">
+                        + @kenon-ai/cli@1.2.4<br/>
+                        added 42 packages in 2s
+                    </div>
+<div class="flex gap-4">
+<span class="text-primary/50">$</span>
+<span class="text-on-surface">kenon run onboard</span>
+</div>
+<div class="text-primary">
+                        [kenon] Indexing workspace...<br/>
+                        [kenon] Found 12 main modules, writing to .kenon/space/modules.jsonl
+                    </div>
+<div class="flex gap-4">
+<span class="text-primary/50">$</span>
+<span class="text-on-surface">kenon load auth-service --scenario edit</span>
+</div>
+<div class="text-on-surface-variant">
+                        Context loaded: 4 files primary, 12 secondary dependencies.<br/>
+                        Read-only boundaries enforced for /shared/lib.
+                    </div>
+<div class="flex gap-4">
+<span class="text-primary/50">$</span>
+<span class="text-on-surface">kenon check --diff</span>
+</div>
+<div class="animate-pulse flex items-center gap-2">
+<span class="text-primary">_</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Copy to Agent -->
+<div class="flex flex-col h-full space-y-4">
+<span class="text-xs font-label uppercase tracking-widest text-primary block">Delegate To Agent</span>
+<div class="glass-panel p-8 rounded-2xl border border-outline-variant/30 flex flex-col h-full bg-surface-container-low relative shadow-2xl">
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-2">Prompt Drop-in</h3>
+<p class="text-on-surface-variant text-sm mb-6">Drop this straight into your agent. It will install and configure Kenon.</p>
+<div class="bg-[#0b1326] p-6 rounded-xl border border-outline-variant/20 font-mono text-sm text-secondary-fixed flex-grow overflow-x-auto relative group">
+<pre id="agent-prompt-text" class="whitespace-pre-wrap leading-relaxed text-[#bac3ff]">请先在这个仓库里安装并初始化 Kenon。
+1. 运行 `git clone https://github.com/kenon-ai/kenon.git` 
+2. 运行 `kenon run onboard`
+3. 运行 `kenon load --global --scenario edit`
+4. 告诉我这个仓库最值得先看的模块和原因
+5. 后续在变更前默认先经过 `check --diff`</pre>
+</div>
+<button onclick="copyPrompt()" class="absolute bottom-12 right-12 bg-surface-variant hover:bg-surface-bright text-on-surface py-2 px-3 rounded-lg transition-all border border-outline-variant/20 hover:border-primary/50 text-xs flex items-center gap-2 cursor-pointer outline-none">
+<span class="material-symbols-outlined text-[16px]">content_copy</span> <span id="copy-btn-text">Copy</span>
+</button>
+</div>
+</div>
+</div>
+
+<div class="mt-8 flex justify-between items-start gap-8">
+<p class="text-sm text-on-surface-variant max-w-sm">Humans can start with the short path. Agents navigate via <code class="text-primary">kenon help --json</code>.</p>
+<div class="flex items-center gap-4 text-xs font-label text-on-surface-variant uppercase tracking-widest">
+<span>Protocol v1.2</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>Apache-2.0</span>
+</div>
+</div>
+</section>
+<!-- Integrations -->
+<section class="py-24 border-y border-outline-variant/10">
+<div class="max-w-7xl mx-auto px-8 text-center">
+<h3 class="text-sm font-label uppercase tracking-widest text-on-surface-variant mb-12">One protocol layer. Multiple runtimes.</h3>
+<div class="flex flex-wrap justify-center gap-12 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
+<span class="text-2xl font-headline font-bold">Claude Code</span>
+<span class="text-2xl font-headline font-bold">Cursor</span>
+<span class="text-2xl font-headline font-bold">Atomon</span>
+<span class="text-2xl font-headline font-bold">Official Codex</span>
+<span class="text-2xl font-headline font-bold">GitHub Copilot</span>
+<span class="text-2xl font-headline font-bold">OpenCode</span>
+<span class="text-2xl font-headline font-bold">Pi</span>
+</div>
+</div>
+</section>
+<!-- Contrast Table -->
+<section class="py-24 max-w-7xl mx-auto px-8">
+<div class="mb-16">
+<h2 class="text-4xl font-headline font-bold mb-4 text-center">Not a Workflow Tool.</h2>
+<p class="text-center text-on-surface-variant">Kenon is the infra beneath the automation.</p>
+</div>
+<div class="overflow-x-auto no-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/20">
+<th class="pb-6 font-headline font-bold text-lg">Feature</th>
+<th class="pb-6 font-headline font-bold text-lg text-on-surface-variant">Workflow Tools</th>
+<th class="pb-6 font-headline font-bold text-lg text-primary">Kenon</th>
+</tr>
+</thead>
+<tbody class="text-on-surface-variant">
+<tr class="border-b border-outline-variant/10">
+<td class="py-8 font-headline font-bold text-on-surface">Primary Purpose</td>
+<td class="py-8">Organize tasks &amp; specs</td>
+<td class="py-8 text-on-surface">Local protocol layer</td>
+</tr>
+<tr class="border-b border-outline-variant/10">
+<td class="py-8 font-headline font-bold text-on-surface">Context Logic</td>
+<td class="py-8">RAG or full-repo dump</td>
+<td class="py-8 text-on-surface">Scoped context loading</td>
+</tr>
+<tr class="border-b border-outline-variant/10">
+<td class="py-8 font-headline font-bold text-on-surface">Safety</td>
+<td class="py-8">User-confirmed changes</td>
+<td class="py-8 text-on-surface">Explicit boundaries &amp; grounds</td>
+</tr>
+<tr class="border-b border-outline-variant/10">
+<td class="py-8 font-headline font-bold text-on-surface">Memory</td>
+<td class="py-8">Chat session history</td>
+<td class="py-8 text-on-surface">Written back to repo</td>
+</tr>
+<tr>
+<td class="py-8 font-headline font-bold text-on-surface">Core Loop</td>
+<td class="py-8">Heavy LLM dependency</td>
+<td class="py-8 text-on-surface">Deterministic, zero-LLM protocol</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0b1326] w-full py-12 border-t border-white/5">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto">
+<div class="mb-8 md:mb-0">
+<span class="text-lg font-bold text-slate-200 font-['JetBrains_Mono'] uppercase tracking-widest">Kenon</span>
+<p class="text-[10px] text-slate-500 mt-2 font-['JetBrains_Mono'] uppercase">Licensed under Apache-2.0</p>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-500 font-['JetBrains_Mono'] text-xs uppercase tracking-widest hover:text-slate-200 transition-colors opacity-80 hover:opacity-100" href="https://github.com/kenon-ai/kenon">GitHub</a>
+<a class="text-slate-500 font-['JetBrains_Mono'] text-xs uppercase tracking-widest hover:text-slate-200 transition-colors opacity-80 hover:opacity-100" href="https://www.npmjs.com/package/@kenon-ai/cli">NPM</a>
+<a class="text-slate-500 font-['JetBrains_Mono'] text-xs uppercase tracking-widest hover:text-slate-200 transition-colors opacity-80 hover:opacity-100" href="https://github.com/kenon-ai/kenon/tree/main/docs">Docs</a>
+<a class="text-slate-500 font-['JetBrains_Mono'] text-xs uppercase tracking-widest hover:text-slate-200 transition-colors opacity-80 hover:opacity-100" href="https://github.com/kenon-ai/kenon/blob/main/AGENTS.md">AGENTS.md</a>
+</div>
+</div>
+</footer>
+<script>
+    function copyPrompt() {
+        const textToCopy = document.getElementById('agent-prompt-text').innerText;
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            const btnText = document.getElementById('copy-btn-text');
+            btnText.innerText = 'Copied!';
+            setTimeout(() => {
+                btnText.innerText = 'Copy';
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy text: ', err);
+        });
+    }
+</script>
+</body></html>
