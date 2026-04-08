@@ -157,11 +157,19 @@
                     Kenon
                 </h1>
 <p class="hero-effect text-[1.4rem] lg:text-[1.8rem] font-headline text-on-surface-variant font-medium leading-tight">
-                    <span class="lang-en">The repo-local engineering semantic layer for coding agents. Decisions, exclusions, boundaries, and evidence — structured back into the repo so agents don't lose them.</span><span class="lang-zh">面向 Coding Agents 的仓库级工程语义层。把决策、排除路径、边界和证据结构化写回仓库，让 Agent 跨会话不丢失。</span>
+                    <span class="lang-en">Coding agents lose critical engineering decisions every time a session ends. Kenon writes them back into the repo &mdash; as structured, retraceable, machine-readable protocol &mdash; so the next session starts where the last one left off.</span><span class="lang-zh">每次会话结束，Coding Agent 都会丢失关键工程决策。Kenon 把它们作为结构化、可追溯、机器可读的协议写回仓库——让下一次会话从上次结束的地方开始。</span>
                 </p>
-<p class="text-lg text-on-surface-variant max-w-xl leading-relaxed drop-shadow-md">
-                    <span class="lang-en">2 min install. Deterministic. Zero external dependencies. Zero LLM on the main chain. Works with Claude Code, Cursor, Codex & any MCP runtime.</span><span class="lang-zh">2 分钟装上。确定性执行。零外部依赖。主链零 LLM。适配 Claude Code、Cursor、Codex 及所有 MCP 运行时。</span>
-                </p>
+<div class="flex flex-wrap gap-3 mt-4 mb-2">
+    <span class="inline-flex items-center gap-1.5 text-on-surface-variant text-sm"><span class="material-symbols-outlined text-primary text-[16px]">timer</span> <span class="lang-en">2 min install</span><span class="lang-zh">2 分钟装上</span></span>
+    <span class="inline-flex items-center gap-1.5 text-on-surface-variant text-sm"><span class="material-symbols-outlined text-primary text-[16px]">verified</span> <span class="lang-en">Deterministic</span><span class="lang-zh">确定性执行</span></span>
+    <span class="inline-flex items-center gap-1.5 text-on-surface-variant text-sm"><span class="material-symbols-outlined text-primary text-[16px]">block</span> <span class="lang-en">Zero dependencies</span><span class="lang-zh">零外部依赖</span></span>
+    <span class="inline-flex items-center gap-1.5 text-on-surface-variant text-sm"><span class="material-symbols-outlined text-primary text-[16px]">psychology_alt</span> <span class="lang-en">Zero LLM main chain</span><span class="lang-zh">主链零 LLM</span></span>
+    <span class="inline-flex items-center gap-1.5 text-on-surface-variant text-sm"><span class="material-symbols-outlined text-primary text-[16px]">smart_toy</span> <span class="lang-en">Agent-first</span><span class="lang-zh">Agent-first</span></span>
+    <span class="inline-flex items-center gap-1.5 text-on-surface-variant text-sm"><span class="material-symbols-outlined text-primary text-[16px]">hub</span> <span class="lang-en">Claude Code, Cursor, Codex & MCP</span><span class="lang-zh">适配 Claude Code、Cursor、Codex 及 MCP</span></span>
+</div>
+<p class="text-lg text-primary/90 font-headline font-bold mt-2">
+    <span class="lang-en">Decisions, boundaries, evidence &mdash; structured into the repo, not left in chat.</span><span class="lang-zh">决策、边界、证据——结构化写进仓库，不留在聊天记录里。</span>
+</p>
 <div class="flex flex-wrap gap-6 pt-6">
 <a href="#fast-track" class="relative group px-8 py-3 bg-cyan-400/10 backdrop-blur-md border border-cyan-400/50 hover:bg-cyan-400/30 font-headline text-lg font-bold text-cyan-300 tracking-widest uppercase transition-all duration-300 shadow-[6px_6px_0px_0px_rgba(0,229,255,0.3)] hover:shadow-[3px_3px_0px_0px_rgba(0,229,255,0.6)] hover:translate-x-[3px] hover:translate-y-[3px] flex items-center justify-center">
     <span class="relative z-10 flex items-center gap-3">
@@ -412,9 +420,13 @@
     <span class="lang-en">A short loop for real work.</span>
     <span class="lang-zh">主导真实工作的极简循环。</span>
 </h2>
-<p class="text-on-surface-variant mb-12">
+<p class="text-on-surface-variant mb-4">
     <span class="lang-en">The standard lifecycle for agent interaction.</span>
     <span class="lang-zh">规范化 Agent 交互的标准生命周期。</span>
+</p>
+<p class="text-on-surface-variant/60 text-sm mb-12">
+    <span class="lang-en">Every step on this loop is deterministic — zero LLM. <code class="text-primary/80">load</code> filters, <code class="text-primary/80">check</code> detects boundaries, <code class="text-primary/80">impact</code> traverses the graph. Heavy judgment only at batch-end.</span>
+    <span class="lang-zh">循环中每一步都是确定性的——零 LLM。<code class="text-primary/80">load</code> 过滤，<code class="text-primary/80">check</code> 检测边界，<code class="text-primary/80">impact</code> 遍历依赖图。重判断仅在批次末尾。</span>
 </p>
 
 <!-- 3D Cyber Ellipse Loop -->
@@ -672,13 +684,13 @@
 <h3 class="text-2xl font-headline font-bold text-on-surface mb-2"><span class="lang-en">Prompt Drop-in</span><span class="lang-zh">注入提示词</span></h3>
 <p class="text-on-surface-variant text-sm mb-6"><span class="lang-en">Drop this straight into your agent. It will install and configure Kenon.</span><span class="lang-zh">直接粘贴这段提示词发给 Agent 进行原生初始化。</span></p>
 <div class="bg-[#0b1326] p-6 rounded-none pixel-border border-outline-variant/20 font-mono text-sm text-secondary-fixed flex-grow overflow-x-auto relative group">
-<pre id="agent-prompt-zh" class="lang-zh whitespace-pre-wrap leading-relaxed text-[#bac3ff]">请在这个仓库里安装并初始化 Kenon。
+<pre id="agent-prompt-zh" class="lang-zh whitespace-pre-wrap leading-loose text-[#bac3ff]">请在这个仓库里安装并初始化 Kenon。
 1. 运行 npm install -g @kenon-ai/cli
 2. 运行 kenon run onboard
 3. 运行 kenon load --global --scenario edit
 4. 告诉我这个仓库最值得先看的模块和原因
 5. 后续在变更前默认先经过 kenon check --diff</pre>
-<pre id="agent-prompt-en" class="lang-en whitespace-pre-wrap leading-relaxed text-[#bac3ff]">Please install and initialize Kenon in this repository.
+<pre id="agent-prompt-en" class="lang-en whitespace-pre-wrap leading-loose text-[#bac3ff]">Please install and initialize Kenon in this repository.
 1. Run npm install -g @kenon-ai/cli
 2. Run kenon run onboard
 3. Run kenon load --global --scenario edit
@@ -702,6 +714,54 @@
 </div>
 </div>
 </section>
+<!-- Agent-first: Supervisory Cockpit -->
+<section class="py-24 bg-surface-container-lowest/30">
+<div class="max-w-6xl mx-auto px-8">
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div>
+    <h2 class="text-4xl font-headline font-bold mb-6 tracking-wider">
+        <span class="lang-en" style="font-family:'DotGothic16',monospace">Agent-first.<br/>Inspection-first.</span>
+        <span class="lang-zh">Agent-first。<br/>观察优先。</span>
+    </h2>
+    <p class="text-on-surface-variant text-lg leading-relaxed mb-6">
+        <span class="lang-en">Kenon looks like a CLI, but for agents it's a <strong class="text-primary">supervisory cockpit</strong>: facts, signals, grounds, evidence, and next-step suggestions &mdash; never verdicts. The agent reads structured state, makes its own decisions, and Kenon keeps the ledger honest.</span>
+        <span class="lang-zh">Kenon 外观是 CLI，但对 Agent 来说，它更像一个<strong class="text-primary">监督座舱</strong>：事实、信号、依据、证据和下一步建议——但不裁决。Agent 读取结构化状态，自行决策，Kenon 只负责让账本保持诚实。</span>
+    </p>
+    <p class="text-on-surface-variant/60 text-sm">
+        <span class="lang-en">Humans don't need to learn Kenon. Agents navigate via <code class="text-primary bg-surface-variant/50 px-1.5 py-0.5 rounded text-xs">kenon help --json</code>.</span>
+        <span class="lang-zh">人类不需要先学 Kenon。Agent 通过 <code class="text-primary bg-surface-variant/50 px-1.5 py-0.5 rounded text-xs">kenon help --json</code> 导航。</span>
+    </p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+    <div class="glass-panel rounded-2xl p-6 border border-outline-variant/20 hover:bg-surface-container-high transition-all relative overflow-hidden group">
+        <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-primary/5 rounded-full blur-[50px] group-hover:bg-primary/15 transition-all"></div>
+        <span class="material-symbols-outlined text-primary text-3xl mb-3 block relative z-10 group-hover:scale-110 transition-transform">data_object</span>
+        <p class="text-on-surface text-sm font-headline font-bold relative z-10"><span class="lang-en">JSON is truth</span><span class="lang-zh">JSON 是真源</span></p>
+        <p class="text-on-surface-variant text-xs mt-1 relative z-10"><span class="lang-en">Markdown is projection</span><span class="lang-zh">Markdown 只是投影</span></p>
+    </div>
+    <div class="glass-panel rounded-2xl p-6 border border-outline-variant/20 hover:bg-surface-container-high transition-all relative overflow-hidden group">
+        <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-emerald-400/5 rounded-full blur-[50px] group-hover:bg-emerald-400/15 transition-all"></div>
+        <span class="material-symbols-outlined text-emerald-400 text-3xl mb-3 block relative z-10 group-hover:scale-110 transition-transform">tune</span>
+        <p class="text-on-surface text-sm font-headline font-bold relative z-10"><span class="lang-en">Context is loaded</span><span class="lang-zh">上下文是加载的</span></p>
+        <p class="text-on-surface-variant text-xs mt-1 relative z-10"><span class="lang-en">Not pasted or injected</span><span class="lang-zh">不是粘贴或注入的</span></p>
+    </div>
+    <div class="glass-panel rounded-2xl p-6 border border-outline-variant/20 hover:bg-surface-container-high transition-all relative overflow-hidden group">
+        <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-amber-400/5 rounded-full blur-[50px] group-hover:bg-amber-400/15 transition-all"></div>
+        <span class="material-symbols-outlined text-amber-400 text-3xl mb-3 block relative z-10 group-hover:scale-110 transition-transform">api</span>
+        <p class="text-on-surface text-sm font-headline font-bold relative z-10"><span class="lang-en">Commands self-describe</span><span class="lang-zh">命令自描述</span></p>
+        <p class="text-on-surface-variant text-xs mt-1 relative z-10"><span class="lang-en">reads / writes / risk / side effects</span><span class="lang-zh">读/写/风险/副作用</span></p>
+    </div>
+    <div class="glass-panel rounded-2xl p-6 border border-outline-variant/20 hover:bg-surface-container-high transition-all relative overflow-hidden group">
+        <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-secondary/5 rounded-full blur-[50px] group-hover:bg-secondary/15 transition-all"></div>
+        <span class="material-symbols-outlined text-secondary text-3xl mb-3 block relative z-10 group-hover:scale-110 transition-transform">visibility</span>
+        <p class="text-on-surface text-sm font-headline font-bold relative z-10"><span class="lang-en">Signals guide</span><span class="lang-zh">信号引导</span></p>
+        <p class="text-on-surface-variant text-xs mt-1 relative z-10"><span class="lang-en">Never judges or blocks</span><span class="lang-zh">不裁决、不阻断</span></p>
+    </div>
+</div>
+</div>
+</div>
+</section>
+
 <!-- The 5 Dimensions (Bento Grid Style) -->
 <section class="py-24 max-w-7xl mx-auto px-8">
 <div class="flex justify-between items-end mb-12">

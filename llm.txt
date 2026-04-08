@@ -1,0 +1,52 @@
+# Kenon
+
+> The repo-local engineering semantic layer for coding agents.
+
+## What is Kenon
+
+Kenon is an open-source CLI tool that writes critical engineering decisions, exclusions, boundaries, and verification evidence back into your repository as structured JSONL — so coding agents don't lose them between sessions.
+
+It is NOT a knowledge base, RAG system, LSP server, or workflow platform replacement. It sits beneath your existing workflow tools (Cursor, Claude Code, Codex, etc.) as a semantic protocol layer.
+
+## Key properties
+
+- Agent-first: JSON/JSONL is the source of truth; Markdown is projection
+- Deterministic main chain: load/check/impact use zero LLM — pure data structure operations
+- Repo-local: all state lives in `.kenon/` inside your repository; no server, no account
+- Five dimensions: intent, deps, quality, space, time
+- Multi-runtime: natively connects Claude Code, Cursor, Codex, OpenCode, VS Code + MCP Server mode
+
+## Installation
+
+```
+npm install -g @kenon-ai/cli
+kenon run onboard
+kenon load <module> --scenario edit
+```
+
+## Core commands
+
+- `kenon load <module>` — load structured context for a module
+- `kenon check --diff` — detect boundary violations in staged changes
+- `kenon impact <file>` — trace dependency impact
+- `kenon verify --claim <claim>` — verify evidence sufficiency
+- `kenon doctor` — health check the .kenon/ state (zero LLM)
+- `kenon history <keyword>` — search decision history
+- `kenon decide` — record a design decision
+- `kenon help --json` — machine-readable command catalog
+
+## For agents
+
+All commands output structured JSON by default. Each command declares its reads, writes, risk level, and side effects via `kenon help <command> --json`. The recommended agent integration path is:
+
+1. `kenon help --json` to discover available commands
+2. `kenon load <module> --scenario edit` to get module context
+3. Use `next_actions` from each command's output to navigate the workflow
+4. `kenon check --diff` before committing changes
+
+## Links
+
+- GitHub: https://github.com/kenon-ai/kenon
+- npm: https://www.npmjs.com/package/@kenon-ai/cli
+- Docs: https://github.com/kenon-ai/kenon/tree/main/docs
+- License: Apache-2.0
