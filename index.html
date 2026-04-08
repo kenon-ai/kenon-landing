@@ -104,12 +104,12 @@
         .pixel-shadow:active { box-shadow: 1px 1px 0px 0px rgba(0,229,255,0.4) !important; transform: translate(3px, 3px); }
         .pixel-border { border: 2px solid rgba(255,255,255,0.1) !important; border-radius: 0 !important; }
         .pixel-border-hover:hover { border-color: rgba(0,229,255,0.5) !important; }
-        
+
         /* Clean Typography for Chinese */
         .lang-zh { font-family: 'Space Grotesk', 'Inter', sans-serif !important; }
-        h1 .lang-zh, h2 .lang-zh, h3 .lang-zh, .font-headline .lang-zh { 
-            font-family: 'Space Grotesk', 'Inter', sans-serif !important; 
-            letter-spacing: -0.02em; 
+        h1 .lang-zh, h2 .lang-zh, h3 .lang-zh, .font-headline .lang-zh {
+            font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+            letter-spacing: -0.02em;
             font-weight: 700;
         }
     </style>
@@ -157,10 +157,10 @@
                     Kenon
                 </h1>
 <p class="hero-effect text-[1.4rem] lg:text-[1.8rem] font-headline text-on-surface-variant font-medium leading-tight">
-                    <span class="lang-en">Context protocol and concurrency coordination layer for coding agents. Keep them working continuously without losing state, boundaries, and evidence.</span><span class="lang-zh">面向 Coding Agents 的上下文协议与并发协调层，让 Agent 在真实工程里持续工作而不失去状态、边界和证据。</span>
+                    <span class="lang-en">The repo-local engineering semantic layer for coding agents. Decisions, exclusions, boundaries, and evidence — structured back into the repo so agents don't lose them.</span><span class="lang-zh">面向 Coding Agents 的仓库级工程语义层。把决策、排除路径、边界和证据结构化写回仓库，让 Agent 跨会话不丢失。</span>
                 </p>
 <p class="text-lg text-on-surface-variant max-w-xl leading-relaxed drop-shadow-md">
-                    <span class="lang-en">Install in 2 minutes. Stop letting your Agents understand the repo from scratch every time.</span><span class="lang-zh">2 分钟装上，让你的 Agent 不再每次都从零理解仓库。</span>
+                    <span class="lang-en">2 min install. Deterministic. Zero external dependencies. Zero LLM on the main chain. Works with Claude Code, Cursor, Codex & any MCP runtime.</span><span class="lang-zh">2 分钟装上。确定性执行。零外部依赖。主链零 LLM。适配 Claude Code、Cursor、Codex 及所有 MCP 运行时。</span>
                 </p>
 <div class="flex flex-wrap gap-6 pt-6">
 <a href="#fast-track" class="relative group px-8 py-3 bg-cyan-400/10 backdrop-blur-md border border-cyan-400/50 hover:bg-cyan-400/30 font-headline text-lg font-bold text-cyan-300 tracking-widest uppercase transition-all duration-300 shadow-[6px_6px_0px_0px_rgba(0,229,255,0.3)] hover:shadow-[3px_3px_0px_0px_rgba(0,229,255,0.6)] hover:translate-x-[3px] hover:translate-y-[3px] flex items-center justify-center">
@@ -188,7 +188,7 @@
 <div class="relative w-full aspect-square max-w-lg mx-auto flex items-center justify-center font-headline lg:translate-x-8">
     <!-- Grid Background -->
     <div class="absolute inset-0 bg-[linear-gradient(rgba(0,229,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(0,229,255,0.08)_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_70%)] pointer-events-none"></div>
-    
+
     <!-- SVG Connections for K-Shape -->
     <svg class="absolute inset-0 w-full h-full pointer-events-none z-10" style="filter: drop-shadow(0 0 5px rgba(0,229,255,0.5))">
         <!-- Vertical Line (1 -> 3 -> 4) -->
@@ -248,185 +248,163 @@
     </div>
 </div>
 </section>
-<!-- Comparison Section -->
-<section class="py-24 bg-surface-container-lowest/50">
-<div class="max-w-7xl mx-auto px-8">
-<h2 class="text-4xl font-headline font-bold mb-16 text-center">
-    <span class="lang-en">Agents don't just need code context.<br/><span class="text-primary">They need state, boundaries, evidence, and continuity.</span></span>
-    <span class="lang-zh">Agents 需要的远不止代码上下文。<br/><span class="text-primary">它们更渴望状态、边界、证据与连续性。</span></span>
+<!-- The Problem (Story-Driven) -->
+<section class="py-24 bg-surface-container/30">
+<div class="max-w-5xl mx-auto px-8">
+<h2 class="text-3xl md:text-4xl font-headline font-bold mb-6 text-center">
+    <span class="lang-en">The real problem isn't "not enough context".</span>
+    <span class="lang-zh">真正的问题不是"上下文不够"。</span>
 </h2>
-<div class="grid md:grid-cols-2 gap-px bg-outline-variant/20 rounded-2xl overflow-hidden border border-outline-variant/20">
-<!-- Column Left: Legacy -->
-<div class="p-12 bg-surface">
-<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-6 block"><span class="lang-en">Stateless Context</span><span class="lang-zh">无状态的上下文交互</span></span>
-<div class="space-y-12">
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-outline shrink-0">radio_button_unchecked</span>
-<div>
-<h4 class="font-headline font-bold text-on-surface"><span class="lang-en">Broad codebase scanning</span><span class="lang-zh">泛化的代码库检索</span></h4>
-<p class="text-on-surface-variant text-sm mt-1 italic"><span class="lang-en">Information density dilutes core instructions.</span><span class="lang-zh">过高的信息密度容易导致模型偏离焦点。</span></p>
+<p class="text-on-surface-variant text-center max-w-3xl mx-auto mb-16 text-lg">
+    <span class="lang-en">It's that your Agent loses key engineering decisions between sessions — and makes the same mistakes again.</span>
+    <span class="lang-zh">而是你的 Agent 在会话之间丢掉了关键的工程决策——然后犯同样的错。</span>
+</p>
+
+<!-- Scenario Card -->
+<div class="pixel-border border-outline-variant/30 overflow-hidden pixel-shadow">
+<div class="p-6 md:p-10 border-b border-outline-variant/20 bg-surface-container-low/50">
+    <div class="flex items-center gap-3 mb-4">
+        <span class="material-symbols-outlined text-amber-400">warning</span>
+        <span class="font-headline font-bold text-on-surface text-lg tracking-widest uppercase"><span class="lang-en">A real scenario</span><span class="lang-zh">一个真实场景</span></span>
+    </div>
+    <p class="text-on-surface-variant leading-relaxed">
+        <span class="lang-en">Agent A explored the <code class="text-primary bg-surface px-1 py-0.5 rounded text-sm">config-loader</code> last week and decided <strong>"don't touch it — downstream modules depend on its undocumented parsing behavior."</strong> Agent A recorded this in the chat, then the session ended.</span>
+        <span class="lang-zh">上周 Agent A 探索了 <code class="text-primary bg-surface px-1 py-0.5 rounded text-sm">config-loader</code>，得出结论：<strong>"不要动它——下游模块依赖它的未文档化解析行为。"</strong> Agent A 把这个结论留在了聊天记录里，然后会话结束了。</span>
+    </p>
+</div>
+<div class="grid md:grid-cols-2 gap-px">
+    <div class="p-6 md:p-8 bg-[#120a0a]/60">
+        <div class="text-[10px] uppercase font-mono text-error mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-[14px]">close</span> <span class="lang-en">This week, without Kenon</span><span class="lang-zh">本周，没有 Kenon</span>
+        </div>
+        <div class="space-y-4 text-on-surface-variant">
+            <p><span class="lang-en">Agent B in a new session sees the "messy" config-loader, refactors it.</span><span class="lang-zh">Agent B 在新会话里看到"混乱的" config-loader，重构了它。</span></p>
+            <p><span class="lang-en">Downstream modules silently break. Half a day debugging.</span><span class="lang-zh">下游模块静默出错。排查了半天。</span></p>
+            <p class="text-error/80 text-sm italic"><span class="lang-en">Agent B's decisions also stay in chat. Next round, same risk.</span><span class="lang-zh">Agent B 的决策也留在聊天记录里。下一轮，同样的风险。</span></p>
+        </div>
+    </div>
+    <div class="p-6 md:p-8 bg-surface-container-low/50 relative">
+        <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyan-500 shadow-[0_0_10px_rgba(0,229,255,0.8)]"></div>
+        <div class="text-[10px] uppercase font-mono text-cyan-400 mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-[14px]">check</span> <span class="lang-en">This week, with Kenon</span><span class="lang-zh">本周，有了 Kenon</span>
+        </div>
+        <div class="space-y-4 text-on-surface font-mono text-sm">
+            <p><code class="text-cyan-300">load src/config --scenario edit</code><br/><span class="text-on-surface-variant text-xs"><span class="lang-en">→ Returns</span><span class="lang-zh">→ 返回</span> <code class="text-amber-300">excluded: refactor-config-loader</code> <span class="lang-en">with grounds & reconsider_when</span><span class="lang-zh">附带依据与重审条件</span></span></p>
+            <p><code class="text-cyan-300">check --diff</code><br/><span class="text-on-surface-variant text-xs"><span class="lang-en">→ Intercepts: change touches an explicitly excluded path</span><span class="lang-zh">→ 拦截：改动触碰了显式排除路径</span></span></p>
+            <p><code class="text-cyan-300">finalize</code><br/><span class="text-on-surface-variant text-xs"><span class="lang-en">→ Agent B's decisions also write back to <code>.kenon/</code>, visible next session</span><span class="lang-zh">→ Agent B 的决策也写回 <code>.kenon/</code>，下个会话自动可见</span></span></p>
+        </div>
+    </div>
 </div>
 </div>
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-outline shrink-0">radio_button_unchecked</span>
-<div>
-<h4 class="font-headline font-bold text-on-surface"><span class="lang-en">Unbounded execution scope</span><span class="lang-zh">隐晦的执行边界</span></h4>
-<p class="text-on-surface-variant text-sm mt-1 italic"><span class="lang-en">Agents may unintentionally process ignored or generated files.</span><span class="lang-zh">Agent 容易对配置、自动生成产物等非目标文件进行处理。</span></p>
-</div>
-</div>
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-outline shrink-0">radio_button_unchecked</span>
-<div>
-<h4 class="font-headline font-bold text-on-surface"><span class="lang-en">Late-stage validation</span><span class="lang-zh">滞后的验证回路</span></h4>
-<p class="text-on-surface-variant text-sm mt-1 italic"><span class="lang-en">Errors cascade through the project before detection.</span><span class="lang-zh">错误往往在整个工作流执行完甚至提交后才暴露。</span></p>
-</div>
-</div>
-</div>
-</div>
-<!-- Column Right: Kenon -->
-<div class="p-12 bg-surface-container-low">
-<span class="text-xs font-label uppercase tracking-widest text-primary mb-6 block"><span class="lang-en">Kenon Protocol</span><span class="lang-zh">Kenon 协议模式</span></span>
-<div class="space-y-12">
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-primary shrink-0">check_circle</span>
-<div>
-<h4 class="font-headline font-bold text-on-surface"><span class="lang-en">Scoped context loading</span><span class="lang-zh">按作用域精准加载</span></h4>
-<p class="text-on-surface-variant text-sm mt-1"><span class="lang-en">Load exactly what matters for the scenario.</span><span class="lang-zh">精确抽取对当前任务唯一且绝对相关的最小集合。</span></p>
-</div>
-</div>
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-primary shrink-0">check_circle</span>
-<div>
-<h4 class="font-headline font-bold text-on-surface"><span class="lang-en">Explicit boundaries</span><span class="lang-zh">强制的硬性边界</span></h4>
-<p class="text-on-surface-variant text-sm mt-1"><span class="lang-en">Rigid exclusion rules enforced via <code>grounds</code>.</span><span class="lang-zh">通过内建的 <code>grounds</code> 原则强制阻止所有无效操作。</span></p>
-</div>
-</div>
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-primary shrink-0">check_circle</span>
-<div>
-<h4 class="font-headline font-bold text-on-surface"><span class="lang-en">Narrowed impact</span><span class="lang-zh">收紧变更影响面</span></h4>
-<p class="text-on-surface-variant text-sm mt-1"><span class="lang-en">Verify downstream effects before committing.</span><span class="lang-zh">在代码弄脏之前，验证它的所有潜在下游涟漪。</span></p>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+<!-- One-liner -->
+<p class="text-center text-on-surface-variant mt-12 text-lg max-w-2xl mx-auto">
+    <span class="lang-en"><strong class="text-primary">Kenon doesn't record everything</strong> — only the part that will cause errors if forgotten next time.</span>
+    <span class="lang-zh"><strong class="text-primary">Kenon 不记录一切</strong>——只记录"下次忘了会出错"的那部分。</span>
+</p>
 </div>
 </section>
-<!-- The 5 Dimensions (Bento Grid Style) -->
+
+<!-- Why Kenon Section -->
 <section class="py-24 max-w-7xl mx-auto px-8">
-<div class="flex justify-between items-end mb-12">
-<div>
-<h2 class="text-4xl font-headline font-bold">One anchor, four faces.</h2>
-<p class="text-on-surface-variant">The dimensional model of agent context.</p>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-6 grid-rows-2 gap-6 h-auto md:h-[600px]">
-<!-- Space: The Centerpiece -->
-<div class="md:col-span-3 md:row-span-2 glass-panel rounded-2xl p-10 border border-outline-variant/20 flex flex-col justify-center relative overflow-hidden group">
-    <!-- Abstract algorithmic background: Dynamic grid scanner -->
-    <div class="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
-        <div class="absolute inset-0 bg-[linear-gradient(rgba(0,229,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(0,229,255,0.2)_1px,transparent_1px)] bg-[size:30px_30px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]"></div>
-        <div class="absolute w-full h-[2px] bg-cyan-400 shadow-[0_0_15px_rgba(0,229,255,0.8)] animate-[scan_3s_ease-in-out_infinite_alternate] top-0 left-0"></div>
+    <div class="mb-16">
+    <h2 class="text-4xl font-headline font-bold mb-4 text-center tracking-widest">
+        <span class="lang-en">What Kenon changes.</span>
+        <span class="lang-zh">Kenon 改变了什么。</span>
+    </h2>
     </div>
     
-    <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/10 rounded-full blur-[80px] group-hover:bg-primary/20 transition-all"></div>
-    <span class="text-primary font-headline text-5xl font-bold mb-4 relative z-10"><span class="lang-en">Space</span><span class="lang-zh">空间(Space)</span></span>
-    <h3 class="text-2xl font-headline font-medium text-on-surface mb-6 relative z-10"><span class="lang-en">Paths &amp; Anchors</span><span class="lang-zh">路径与锚点</span></h3>
-    <p class="text-on-surface-variant text-lg leading-relaxed relative z-10"><span class="lang-en">The foundational map of your repository. Defines where code lives, what it depends on, and the physical limits of an agent's workspace.</span><span class="lang-zh">代码仓库的基础地图。定义了代码位置、依赖关系以及 Agent 能够触碰的物理边界。</span></p>
-    <div class="mt-8 flex gap-2 relative z-10">
-        <span class="px-3 py-1 bg-surface-variant rounded-full text-xs text-on-surface-variant font-mono border border-cyan-500/20 shadow-[0_0_10px_rgba(0,229,255,0.1)]">.kenon/space/modules.jsonl</span>
-        <span class="px-3 py-1 bg-surface-variant rounded-full text-xs text-on-surface-variant font-mono border border-cyan-500/20 shadow-[0_0_10px_rgba(0,229,255,0.1)]">scan-baseline.json</span>
-    </div>
-    <style>
-        @keyframes scan {
-            0% { top: 0%; opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { top: 100%; opacity: 0; }
-        }
-    </style>
-</div>
-<!-- Time -->
-<div class="md:col-span-3 glass-panel rounded-2xl p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all relative overflow-hidden group">
-    <!-- Algorithmic dynamic element: Shift register/timeline -->
-    <div class="absolute right-8 top-1/2 -translate-y-1/2 w-32 h-32 opacity-30 group-hover:opacity-60 transition-opacity">
-        <svg viewBox="0 0 100 100" class="w-full h-full stroke-secondary fill-none stroke-2">
-            <circle cx="50" cy="50" r="40" stroke-dasharray="4 8" class="animate-[spin_10s_linear_infinite]" />
-            <circle cx="50" cy="50" r="30" stroke-opacity="0.3" />
-            <path d="M50 50 L50 25" class="origin-bottom animate-[spin_2s_linear_infinite]" />
-            <path d="M50 50 L70 50" class="origin-left animate-[spin_12s_linear_infinite]" />
-            <!-- Commit dots flowing -->
-            <circle cx="50" cy="10" r="3" fill="currentColor" class="animate-ping" />
-        </svg>
-    </div>
-
-    <div class="relative z-10 w-2/3">
-        <span class="text-secondary font-headline text-3xl font-bold mb-2 block"><span class="lang-en">Time</span><span class="lang-zh">时间(Time)</span></span>
-        <p class="text-on-surface-variant"><span class="lang-en">Sessions &amp; Continuity. Track history beyond the chat prompt. Know what was tried and why.</span><span class="lang-zh">会话与连贯性。追踪提示词之外的全局历史，记住尝试过什么以及原因。</span></p>
-    </div>
-    <span class="material-symbols-outlined text-secondary text-4xl self-start mt-4 relative z-10 group-hover:scale-110 transition-transform">history</span>
-</div>
-<!-- Quality -->
-<div class="md:col-span-3 lg:col-span-1 glass-panel rounded-2xl p-6 lg:p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all relative overflow-hidden group">
-    <!-- Algorithmic dynamic element: Pulse lines -->
-    <div class="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-50 transition-opacity">
-        <svg fill="none" viewBox="0 0 100 100" class="w-full h-full stroke-success stroke-[0.5]">
-            <path d="M0 50 L30 50 L40 20 L60 80 L70 50 L100 50" class="animate-[dash_3s_linear_infinite]" stroke-dasharray="100" stroke-dashoffset="100"/>
-            <path d="M0 60 L100 60" stroke-opacity="0.2" />
-            <path d="M0 40 L100 40" stroke-opacity="0.2" />
-        </svg>
-    </div>
+    <div class="space-y-4">
+    <div class="grid md:grid-cols-2 gap-px pixel-border border-outline-variant/20 overflow-hidden pixel-shadow">
+        <div class="bg-[#120a0a]/60 backdrop-blur-sm p-6 md:p-8">
+            <div class="text-[10px] uppercase font-mono text-error mb-3 flex items-center gap-2 tracking-widest">
+                <span class="material-symbols-outlined text-[14px]">close</span> <span class="lang-en">Without Kenon</span><span class="lang-zh">没有 Kenon</span>
+            </div>
+            <p class="text-on-surface-variant text-base md:text-lg">
+                <span class="lang-en">Excluded paths and key decisions stay in chat logs. Next session, they're gone.</span>
+                <span class="lang-zh">排除路径和关键决策留在聊天记录里。下个会话，就没了。</span>
+            </p>
+        </div>
+        <div class="bg-surface-container/30 backdrop-blur-xl p-6 md:p-8 relative">
+            <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-cyan-400 shadow-[0_0_12px_rgba(0,229,255,0.8)]"></div>
+                <div class="text-[10px] uppercase font-mono text-cyan-400 mb-3 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[14px]">check</span> <span class="lang-en">With Kenon</span><span class="lang-zh">有了 Kenon</span>
+                </div>
+                <p class="text-cyan-50 text-base md:text-lg">
+                    <span class="lang-en"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">load</code> returns past decisions and <code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">excluded</code> paths with <code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">grounds</code> and <code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">reconsider_when</code>.</span>
+                    <span class="lang-zh"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">load</code> 返回过去的决策和排除路径，附带依据和重审条件。</span>
+                </p>
+            </div>
+        </div>
     
-    <div class="relative z-10">
-        <span class="text-success font-headline text-2xl font-bold mb-2 block"><span class="lang-en">Quality</span><span class="lang-zh">质量</span></span>
-        <p class="text-on-surface-variant text-sm"><span class="lang-en">Verification &amp; Findings. Grounding truth in execution.</span><span class="lang-zh">验证与发现。以真实执行结果为基础的事实对齐。</span></p>
+    <div class="grid md:grid-cols-2 gap-px pixel-border border-outline-variant/20 overflow-hidden pixel-shadow">
+        <div class="bg-[#120a0a]/60 backdrop-blur-sm p-6 md:p-8">
+            <div class="text-[10px] uppercase font-mono text-error mb-3 flex items-center gap-2 tracking-widest">
+                <span class="material-symbols-outlined text-[14px]">close</span> <span class="lang-en">Without Kenon</span><span class="lang-zh">没有 Kenon</span>
+            </div>
+            <p class="text-on-surface-variant text-base md:text-lg">
+                <span class="lang-en">Changes cross historical design boundaries with no warning.</span>
+                    <span class="lang-zh">变更无声无息地越过项目历史设计边界。</span>
+                </p>
+            </div>
+        <div class="bg-surface-container/30 backdrop-blur-xl p-6 md:p-8 relative">
+            <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-cyan-400 shadow-[0_0_12px_rgba(0,229,255,0.8)]"></div>
+                <div class="text-[10px] uppercase font-mono text-cyan-400 mb-3 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[14px]">check</span> <span class="lang-en">With Kenon</span><span class="lang-zh">有了 Kenon</span>
+                </div>
+                <p class="text-cyan-50 text-base md:text-lg">
+                    <span class="lang-en"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">check --diff</code> intercepts boundary violations before commit. <code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">impact</code> shows the blast radius.</span>
+                    <span class="lang-zh"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">check --diff</code> 在提交前拦截越界。<code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">impact</code> 展示爆炸半径。</span>
+                </p>
+            </div>
+        </div>
+    
+    <div class="grid md:grid-cols-2 gap-px pixel-border border-outline-variant/20 overflow-hidden pixel-shadow">
+        <div class="bg-[#120a0a]/60 backdrop-blur-sm p-6 md:p-8">
+            <div class="text-[10px] uppercase font-mono text-error mb-3 flex items-center gap-2 tracking-widest">
+                <span class="material-symbols-outlined text-[14px]">close</span> <span class="lang-en">Without Kenon</span><span class="lang-zh">没有 Kenon</span>
+            </div>
+            <p class="text-on-surface-variant text-base md:text-lg">
+                <span class="lang-en">Agents rebuild state from scratch every round. Logs and diffs, every time.</span>
+                    <span class="lang-zh">Agent 每轮都从零拼凑状态。每次都是日志和 Diff。</span>
+                </p>
+            </div>
+        <div class="bg-surface-container/30 backdrop-blur-xl p-6 md:p-8 relative">
+            <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-cyan-400 shadow-[0_0_12px_rgba(0,229,255,0.8)]"></div>
+                <div class="text-[10px] uppercase font-mono text-cyan-400 mb-3 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[14px]">check</span> <span class="lang-en">With Kenon</span><span class="lang-zh">有了 Kenon</span>
+                </div>
+                <p class="text-cyan-50 text-base md:text-lg">
+                    <span class="lang-en"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">load</code> returns folded state summaries, anomaly signals, and next-step navigation. Zero LLM.</span>
+                    <span class="lang-zh"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">load</code> 返回折叠后的状态摘要、异常信号和下一步导航。零 LLM。</span>
+                </p>
+            </div>
+        </div>
+    
+    <div class="grid md:grid-cols-2 gap-px pixel-border border-outline-variant/20 overflow-hidden pixel-shadow">
+        <div class="bg-[#120a0a]/60 backdrop-blur-sm p-6 md:p-8">
+            <div class="text-[10px] uppercase font-mono text-error mb-3 flex items-center gap-2 tracking-widest">
+                <span class="material-symbols-outlined text-[14px]">close</span> <span class="lang-en">Without Kenon</span><span class="lang-zh">没有 Kenon</span>
+            </div>
+            <p class="text-on-surface-variant text-base md:text-lg">
+                <span class="lang-en">Each Agent runtime builds its own context silo.</span>
+                    <span class="lang-zh">每个 Agent runtime 都在搞自己的上下文孤岛。</span>
+                </p>
+            </div>
+        <div class="bg-surface-container/30 backdrop-blur-xl p-6 md:p-8 relative">
+            <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-cyan-400 shadow-[0_0_12px_rgba(0,229,255,0.8)]"></div>
+                <div class="text-[10px] uppercase font-mono text-cyan-400 mb-3 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[14px]">check</span> <span class="lang-en">With Kenon</span><span class="lang-zh">有了 Kenon</span>
+                </div>
+                <p class="text-cyan-50 text-base md:text-lg">
+                    <span class="lang-en">One protocol layer natively connects 6 coding agent runtimes + MCP Server mode.</span>
+                    <span class="lang-zh">一层协议原生接入 6 个 Agent 运行时 + MCP Server 模式。</span>
+                </p>
+            </div>
+        </div>
     </div>
-    <span class="material-symbols-outlined text-success text-3xl self-end mt-4 relative z-10 group-hover:animate-bounce">verified</span>
-</div>
-
-<!-- Intent -->
-<div class="md:col-span-3 lg:col-span-3 glass-panel rounded-2xl p-6 md:p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all relative overflow-hidden group">
-    <!-- Algorithmic dynamic element: Allowed vs Blocked paths -->
-    <div class="absolute right-0 top-0 w-1/2 h-full pointer-events-none opacity-20 group-hover:opacity-60 transition-opacity flex items-center justify-end pr-8">
-        <svg viewBox="0 0 100 100" class="w-32 h-32 stroke-2 fill-none">
-            <path d="M0 50 C 30 50, 40 20, 80 20" class="stroke-emerald-400 animate-[dash_2s_ease-out_infinite]" stroke-dasharray="10 5" />
-            <circle cx="80" cy="20" r="4" class="fill-emerald-400 stroke-none" />
-            <!-- Blocked path -->
-            <path d="M0 50 C 30 50, 40 80, 70 80" class="stroke-error/50" stroke-dasharray="4" />
-            <path d="M65 75 L75 85 M75 75 L65 85" class="stroke-error stroke-[3]" />
-        </svg>
-    </div>
-
-    <div class="relative z-10 w-2/3">
-        <span class="text-emerald-400 font-headline text-3xl font-bold mb-2 block"><span class="lang-en">Intent</span><span class="lang-zh">意图</span></span>
-        <p class="text-on-surface-variant"><span class="lang-en">Decisions &amp; Exclusions. Explicit goals and forbidden paths.</span><span class="lang-zh">决策与排除。明确的目标约束与禁止触碰的红线。</span></p>
-    </div>
-    <span class="material-symbols-outlined text-emerald-400 text-4xl self-start mt-4 relative z-10 group-hover:translate-x-2 transition-transform">track_changes</span>
-</div>
-
-<!-- Dependencies -->
-<div class="md:col-span-3 lg:col-span-2 glass-panel rounded-2xl p-6 md:p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all relative overflow-hidden group">
-    <!-- Algorithmic dynamic element: Network Graph -->
-    <div class="absolute -right-4 -bottom-4 w-40 h-40 pointer-events-none opacity-20 group-hover:opacity-60 transition-opacity">
-        <svg viewBox="0 0 100 100" class="w-full h-full stroke-tertiary stroke-1 fill-tertiary">
-            <circle cx="50" cy="50" r="4" class="fill-tertiary cursor-pointer hover:r-6" />
-            <circle cx="20" cy="20" r="3" />
-            <circle cx="80" cy="30" r="3" />
-            <circle cx="70" cy="80" r="3" />
-            <circle cx="20" cy="70" r="3" />
-            <path d="M50 50 L20 20 M50 50 L80 30 M50 50 L70 80 M50 50 L20 70 M20 20 L80 30" class="stroke-tertiary/50 !fill-none animate-[ping_4s_linear_infinite]" />
-        </svg>
-    </div>
-
-    <div class="relative z-10 w-2/3">
-        <span class="text-tertiary font-headline text-3xl font-bold mb-2 block"><span class="lang-en">Dependencies</span><span class="lang-zh">依赖图</span></span>
-        <p class="text-on-surface-variant"><span class="lang-en">Dependency Analysis. Seeing the ripple effect.</span><span class="lang-zh">影响面分析。洞悉任何一次修改所引发的连锁反应。</span></p>
-    </div>
-    <span class="material-symbols-outlined text-tertiary text-4xl self-start mt-4 relative z-10 group-hover:rotate-12 transition-transform">account_tree</span>
-</div>
-</div>
-</section>
+    </section>
+    
 <!-- The Loop -->
 <section class="py-24 bg-surface-container-lowest">
 <div class="max-w-7xl mx-auto px-8 text-center">
@@ -694,18 +672,18 @@
 <h3 class="text-2xl font-headline font-bold text-on-surface mb-2"><span class="lang-en">Prompt Drop-in</span><span class="lang-zh">注入提示词</span></h3>
 <p class="text-on-surface-variant text-sm mb-6"><span class="lang-en">Drop this straight into your agent. It will install and configure Kenon.</span><span class="lang-zh">直接粘贴这段提示词发给 Agent 进行原生初始化。</span></p>
 <div class="bg-[#0b1326] p-6 rounded-none pixel-border border-outline-variant/20 font-mono text-sm text-secondary-fixed flex-grow overflow-x-auto relative group">
-<pre id="agent-prompt-zh" class="lang-zh whitespace-pre-wrap leading-relaxed text-[#bac3ff]">请先在这个仓库里安装并初始化 Kenon。
-1. 运行 `git clone https://github.com/kenon-ai/kenon.git` 
-2. 运行 `kenon run onboard`
-3. 运行 `kenon load --global --scenario edit`
+<pre id="agent-prompt-zh" class="lang-zh whitespace-pre-wrap leading-relaxed text-[#bac3ff]">请在这个仓库里安装并初始化 Kenon。
+1. 运行 npm install -g @kenon-ai/cli
+2. 运行 kenon run onboard
+3. 运行 kenon load --global --scenario edit
 4. 告诉我这个仓库最值得先看的模块和原因
-5. 后续在变更前默认先经过 `check --diff`</pre>
-<pre id="agent-prompt-en" class="lang-en whitespace-pre-wrap leading-relaxed text-[#bac3ff]">Please install and initialize Kenon in this repository first.
-1. Run `git clone https://github.com/kenon-ai/kenon.git`
-2. Run `kenon run onboard`
-3. Run `kenon load --global --scenario edit`
-4. Tell me which module in this repository is most worth looking at first and why.
-5. In future changes, always pass through `check --diff` by default.</pre>
+5. 后续在变更前默认先经过 kenon check --diff</pre>
+<pre id="agent-prompt-en" class="lang-en whitespace-pre-wrap leading-relaxed text-[#bac3ff]">Please install and initialize Kenon in this repository.
+1. Run npm install -g @kenon-ai/cli
+2. Run kenon run onboard
+3. Run kenon load --global --scenario edit
+4. Tell me which module is most worth looking at first and why.
+5. In future changes, always pass through kenon check --diff by default.</pre>
 </div>
 <button onclick="copyPrompt()" class="absolute bottom-12 right-12 bg-surface-variant hover:bg-surface-bright text-on-surface py-2 px-3 rounded-none pixel-border transition-all hover:border-primary/50 text-xs flex items-center gap-2 cursor-pointer outline-none">
 <span class="material-symbols-outlined text-[16px]">content_copy</span> <span id="copy-btn-text"><span class="lang-en">Copy</span><span class="lang-zh">复制</span></span>
@@ -724,13 +702,183 @@
 </div>
 </div>
 </section>
+<!-- The 5 Dimensions (Bento Grid Style) -->
+<section class="py-24 max-w-7xl mx-auto px-8">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-4xl font-headline font-bold">One anchor, four faces.</h2>
+<p class="text-on-surface-variant">The dimensional model of agent context.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-8 md:grid-rows-[3fr_1fr_2fr] gap-6 h-auto md:h-[700px]">
+<!-- Space: The Centerpiece -->
+<div class="md:col-span-4 md:row-span-2 md:[grid-row:1/3] glass-panel rounded-2xl p-10 border border-outline-variant/20 flex flex-col justify-center relative overflow-hidden group">
+    <!-- Abstract algorithmic background: Dynamic grid scanner -->
+    <div class="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(0,229,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(0,229,255,0.2)_1px,transparent_1px)] bg-[size:30px_30px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]"></div>
+        <div class="absolute w-full h-[2px] bg-cyan-400 shadow-[0_0_15px_rgba(0,229,255,0.8)] animate-[scan_3s_ease-in-out_infinite_alternate] top-0 left-0"></div>
+    </div>
+
+    <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/10 rounded-full blur-[80px] group-hover:bg-primary/20 transition-all"></div>
+    <span class="text-primary font-headline text-5xl font-bold mb-4 relative z-10"><span class="lang-en">Space</span><span class="lang-zh">空间(Space)</span></span>
+    <h3 class="text-2xl font-headline font-medium text-on-surface mb-6 relative z-10"><span class="lang-en">Paths &amp; Anchors</span><span class="lang-zh">路径与锚点</span></h3>
+    <p class="text-on-surface-variant text-lg leading-relaxed relative z-10"><span class="lang-en">The foundational map of your repository. Defines where code lives, what it depends on, and the physical limits of an agent's workspace.</span><span class="lang-zh">代码仓库的基础地图。定义了代码位置、依赖关系以及 Agent 能够触碰的物理边界。</span></p>
+    <div class="mt-8 flex gap-2 relative z-10">
+        <span class="px-3 py-1 bg-surface-variant rounded-full text-xs text-on-surface-variant font-mono border border-cyan-500/20 shadow-[0_0_10px_rgba(0,229,255,0.1)]">.kenon/space/modules.jsonl</span>
+        <span class="px-3 py-1 bg-surface-variant rounded-full text-xs text-on-surface-variant font-mono border border-cyan-500/20 shadow-[0_0_10px_rgba(0,229,255,0.1)]">scan-baseline.json</span>
+    </div>
+    <style>
+        @keyframes scan {
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+    </style>
+</div>
+<!-- Time -->
+<div class="md:col-span-4 glass-panel rounded-2xl p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all relative overflow-hidden group">
+    <!-- Algorithmic dynamic element: Shift register/timeline -->
+    <div class="absolute right-8 top-1/2 -translate-y-1/2 w-32 h-32 opacity-30 group-hover:opacity-60 transition-opacity">
+        <svg viewBox="0 0 100 100" class="w-full h-full stroke-secondary fill-none stroke-2">
+            <circle cx="50" cy="50" r="40" stroke-dasharray="4 8" class="animate-[spin_10s_linear_infinite]" />
+            <circle cx="50" cy="50" r="30" stroke-opacity="0.3" />
+            <path d="M50 50 L50 25" class="origin-bottom animate-[spin_2s_linear_infinite]" />
+            <path d="M50 50 L70 50" class="origin-left animate-[spin_12s_linear_infinite]" />
+            <!-- Commit dots flowing -->
+            <circle cx="50" cy="10" r="3" fill="currentColor" class="animate-ping" />
+        </svg>
+    </div>
+
+    <div class="relative z-10 w-2/3">
+        <span class="text-secondary font-headline text-3xl font-bold mb-2 block"><span class="lang-en">Time</span><span class="lang-zh">时间(Time)</span></span>
+        <p class="text-on-surface-variant"><span class="lang-en">Sessions &amp; Continuity. Track history beyond the chat prompt. Know what was tried and why.</span><span class="lang-zh">会话与连贯性。追踪提示词之外的全局历史，记住尝试过什么以及原因。</span></p>
+    </div>
+    <span class="material-symbols-outlined text-secondary text-4xl self-start mt-4 relative z-10 group-hover:scale-110 transition-transform">history</span>
+</div>
+<!-- Quality -->
+<div class="md:col-span-4 md:[grid-row:3/4] md:[grid-column:1/5] glass-panel rounded-2xl p-6 lg:p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all relative overflow-hidden group">
+    <!-- Algorithmic dynamic element: Pulse lines -->
+    <div class="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-50 transition-opacity">
+        <svg fill="none" viewBox="0 0 100 100" class="w-full h-full stroke-success stroke-[0.5]">
+            <path d="M0 50 L30 50 L40 20 L60 80 L70 50 L100 50" class="animate-[dash_3s_linear_infinite]" stroke-dasharray="100" stroke-dashoffset="100"/>
+            <path d="M0 60 L100 60" stroke-opacity="0.2" />
+            <path d="M0 40 L100 40" stroke-opacity="0.2" />
+        </svg>
+    </div>
+
+    <div class="relative z-10">
+        <span class="text-success font-headline text-2xl font-bold mb-2 block"><span class="lang-en">Quality</span><span class="lang-zh">质量</span></span>
+        <p class="text-on-surface-variant text-sm"><span class="lang-en">Verification &amp; Findings. Grounding truth in execution.</span><span class="lang-zh">验证与发现。以真实执行结果为基础的事实对齐。</span></p>
+    </div>
+    <span class="material-symbols-outlined text-success text-3xl self-end mt-4 relative z-10 group-hover:animate-bounce">verified</span>
+</div>
+
+<!-- Intent -->
+<div class="md:[grid-row:2/4] md:[grid-column:5/7] glass-panel rounded-2xl p-6 md:p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all relative overflow-hidden group">
+    <!-- Algorithmic dynamic element: Allowed vs Blocked paths -->
+    <div class="absolute right-0 top-0 w-1/2 h-full pointer-events-none opacity-20 group-hover:opacity-60 transition-opacity flex items-center justify-end pr-8">
+        <svg viewBox="0 0 100 100" class="w-32 h-32 stroke-2 fill-none">
+            <path d="M0 50 C 30 50, 40 20, 80 20" class="stroke-emerald-400 animate-[dash_2s_ease-out_infinite]" stroke-dasharray="10 5" />
+            <circle cx="80" cy="20" r="4" class="fill-emerald-400 stroke-none" />
+            <!-- Blocked path -->
+            <path d="M0 50 C 30 50, 40 80, 70 80" class="stroke-error/50" stroke-dasharray="4" />
+            <path d="M65 75 L75 85 M75 75 L65 85" class="stroke-error stroke-[3]" />
+        </svg>
+    </div>
+
+    <div class="relative z-10 w-2/3">
+        <span class="text-emerald-400 font-headline text-3xl font-bold mb-2 block"><span class="lang-en">Intent</span><span class="lang-zh">意图</span></span>
+        <p class="text-on-surface-variant"><span class="lang-en">Decisions &amp; Exclusions. Explicit goals and forbidden paths.</span><span class="lang-zh">决策与排除。明确的目标约束与禁止触碰的红线。</span></p>
+    </div>
+    <span class="material-symbols-outlined text-emerald-400 text-4xl self-start mt-4 relative z-10 group-hover:translate-x-2 transition-transform">track_changes</span>
+</div>
+
+<!-- Dependencies -->
+<div class="md:col-span-2 md:[grid-row:2/4] md:[grid-column:7/9] glass-panel rounded-2xl p-6 md:p-8 border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all relative overflow-hidden group">
+    <!-- Algorithmic dynamic element: Network Graph -->
+    <div class="absolute -right-4 -bottom-4 w-40 h-40 pointer-events-none opacity-20 group-hover:opacity-60 transition-opacity">
+        <svg viewBox="0 0 100 100" class="w-full h-full stroke-tertiary stroke-1 fill-tertiary">
+            <circle cx="50" cy="50" r="4" class="fill-tertiary cursor-pointer hover:r-6" />
+            <circle cx="20" cy="20" r="3" />
+            <circle cx="80" cy="30" r="3" />
+            <circle cx="70" cy="80" r="3" />
+            <circle cx="20" cy="70" r="3" />
+            <path d="M50 50 L20 20 M50 50 L80 30 M50 50 L70 80 M50 50 L20 70 M20 20 L80 30" class="stroke-tertiary/50 !fill-none animate-[ping_4s_linear_infinite]" />
+        </svg>
+    </div>
+
+    <div class="relative z-10 w-2/3">
+        <span class="text-tertiary font-headline text-3xl font-bold mb-2 block"><span class="lang-en">Dependencies</span><span class="lang-zh">依赖图</span></span>
+        <p class="text-on-surface-variant"><span class="lang-en">Dependency Analysis. Seeing the ripple effect.</span><span class="lang-zh">影响面分析。洞悉任何一次修改所引发的连锁反应。</span></p>
+    </div>
+    <span class="material-symbols-outlined text-tertiary text-4xl self-start mt-4 relative z-10 group-hover:rotate-12 transition-transform">account_tree</span>
+</div>
+</div>
+</section>
+<!-- Progressive Adoption -->
+<section class="py-24 bg-surface-container/20">
+<div class="max-w-5xl mx-auto px-8">
+<h2 class="text-4xl font-headline font-bold mb-4 text-center">
+    <span class="lang-en">Start small. Grow when needed.</span>
+    <span class="lang-zh">从最小开始，按需扩展。</span>
+</h2>
+<p class="text-on-surface-variant text-center mb-12">
+    <span class="lang-en">Day 1 needs exactly 3 commands. 50+ commands are there when you're ready.</span>
+    <span class="lang-zh">第一天只需要 3 条命令。50+ 条命令在你需要时随时可用。</span>
+</p>
+<div class="space-y-4">
+<div class="pixel-border border-cyan-500/30 p-6 pixel-shadow bg-surface-container-low/30 flex flex-col md:flex-row items-start md:items-center gap-4">
+    <span class="font-headline font-bold text-cyan-400 text-2xl shrink-0 w-12">L0</span>
+    <div class="flex-grow">
+        <h3 class="font-headline font-bold text-on-surface"><span class="lang-en">Cold Start</span><span class="lang-zh">冷启动</span></h3>
+        <p class="text-on-surface-variant text-sm"><span class="lang-en"><code>run onboard</code> + <code>load</code> — build space/deps foundation, generate first readable projections</span><span class="lang-zh"><code>run onboard</code> + <code>load</code> — 建立空间/依赖基础，生成首轮可读投影</span></p>
+    </div>
+</div>
+<div class="pixel-border border-outline-variant/20 p-6 bg-surface-container-low/20 flex flex-col md:flex-row items-start md:items-center gap-4">
+    <span class="font-headline font-bold text-on-surface-variant text-2xl shrink-0 w-12">L1</span>
+    <div class="flex-grow">
+        <h3 class="font-headline font-bold text-on-surface"><span class="lang-en">Daily Cycle</span><span class="lang-zh">日常循环</span></h3>
+        <p class="text-on-surface-variant text-sm"><span class="lang-en">+ <code>check --diff</code> + <code>finalize</code> — add boundary guardrails and traceable close-outs</span><span class="lang-zh">+ <code>check --diff</code> + <code>finalize</code> — 加入边界守卫和可追溯收口</span></p>
+    </div>
+</div>
+<div class="pixel-border border-outline-variant/20 p-6 bg-surface-container-low/20 flex flex-col md:flex-row items-start md:items-center gap-4">
+    <span class="font-headline font-bold text-on-surface-variant text-2xl shrink-0 w-12">L2</span>
+    <div class="flex-grow">
+        <h3 class="font-headline font-bold text-on-surface"><span class="lang-en">Change Closure</span><span class="lang-zh">变更收口</span></h3>
+        <p class="text-on-surface-variant text-sm"><span class="lang-en">+ <code>impact</code> + <code>verify</code> + <code>history --trace</code> — narrow verification radius, add causal chain tracing</span><span class="lang-zh">+ <code>impact</code> + <code>verify</code> + <code>history --trace</code> — 缩小验证半径，补齐因果链追踪</span></p>
+    </div>
+</div>
+<div class="pixel-border border-outline-variant/20 p-6 bg-surface-container-low/20 flex flex-col md:flex-row items-start md:items-center gap-4 opacity-60">
+    <span class="font-headline font-bold text-on-surface-variant text-2xl shrink-0 w-12">L3+</span>
+    <div class="flex-grow">
+        <h3 class="font-headline font-bold text-on-surface"><span class="lang-en">Quality Governance & Concurrency</span><span class="lang-zh">质量治理与并发协作</span></h3>
+        <p class="text-on-surface-variant text-sm"><span class="lang-en">quality-check, acceptance-gate, postmortem, review, stale, intent-lock, invoke, session, batch runner...</span><span class="lang-zh">quality-check、acceptance-gate、postmortem、review、stale、intent-lock、invoke、session、batch runner...</span></p>
+    </div>
+</div>
+</div>
+<h3 class="text-2xl font-headline font-bold text-primary text-center mt-12 tracking-widest">
+    <span class="lang-en">Humans don't need to learn Kenon first.</span>
+    <span class="lang-zh">人类不需要先学 Kenon。</span>
+</h3>
+<p class="text-center text-on-surface-variant text-sm mt-3">
+    <span class="lang-en">After install, it's the Agent that learns Kenon — via structured commands, projections, and the supervisory cockpit.</span>
+    <span class="lang-zh">安装后是 Agent 学 Kenon——通过结构化命令、投影层和监督座舱自行导航。</span>
+</p>
+</div>
+</section>
+
 <!-- Integrations -->
 <section class="py-24 border-y border-outline-variant/10">
 <div class="max-w-7xl mx-auto px-8 text-center">
-<h3 class="text-sm font-label uppercase tracking-widest text-on-surface-variant mb-12">
+<h2 class="text-3xl font-headline font-bold tracking-widest text-on-surface mb-4">
     <span class="lang-en">One protocol layer. Multiple runtimes.</span>
     <span class="lang-zh">单层协议，多重运行环境组合。</span>
-</h3>
+</h2>
+<p class="text-on-surface-variant text-sm mb-12">
+    <span class="lang-en">Native integration with 6 coding agent runtimes + MCP Server mode.</span>
+    <span class="lang-zh">原生接入 6 个 Agent 运行时 + MCP Server 模式。</span>
+</p>
 <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
 <span class="text-xl md:text-2xl font-headline font-bold">Claude Code</span>
 <span class="text-xl md:text-2xl font-headline font-bold">Cursor</span>
@@ -748,229 +896,36 @@
 </div>
 </div>
 </section>
-<!-- Why Kenon Section -->
-<section class="py-24 max-w-7xl mx-auto px-8">
-<div class="mb-16">
-<h2 class="text-4xl font-headline font-bold mb-4 text-center">
-    <span class="lang-en">Why Kenon?</span>
-    <span class="lang-zh">它解决了什么？</span>
+
+<!-- Design Stance -->
+<section class="py-24 bg-surface-container-lowest/30">
+<div class="max-w-6xl mx-auto px-8 text-center">
+<h2 class="text-4xl font-headline font-bold mb-12">
+    <span class="lang-en">Design Stance</span>
+    <span class="lang-zh">设计立场</span>
 </h2>
-<p class="text-center text-on-surface-variant max-w-2xl mx-auto">
-    <span class="lang-en">Stop letting your coding agents fly blind. Kenon prevents context drift, historical violations, and collision during parallel execution.</span>
-    <span class="lang-zh">不再让你的 Agent 每次从零读代码。Kenon 防止上下文漂移、设计越界以及并发协作时的态势踩踏。</span>
-</p>
+<div class="grid md:grid-cols-3 gap-6 text-left">
+<div class="glass-panel rounded-2xl p-8 border border-outline-variant/20 hover:bg-surface-container-high transition-all relative overflow-hidden group">
+    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-primary/5 rounded-full blur-[60px] group-hover:bg-primary/15 transition-all"></div>
+    <span class="material-symbols-outlined text-primary text-4xl mb-4 block relative z-10 group-hover:scale-110 transition-transform">visibility</span>
+    <h3 class="font-headline font-bold text-xl text-on-surface mb-3 relative z-10 tracking-wider"><span class="lang-en">Telescope, not judge.</span><span class="lang-zh">望远镜，不是法官。</span></h3>
+    <p class="text-on-surface-variant text-sm relative z-10"><span class="lang-en">Kenon makes facts and structure visible. It never passes verdicts.</span><span class="lang-zh">Kenon 让事实和结构可见，但不替现实下结论。</span></p>
 </div>
-
-<div class="space-y-4">
-    <!-- Item 0.1 -->
-    <div class="grid md:grid-cols-2 gap-px bg-outline-variant/10 rounded-xl overflow-hidden border border-outline-variant/10 shadow-lg">
-        <div class="bg-[#120a0a]/80 p-6 md:p-8">
-            <div class="text-[10px] uppercase font-mono text-red-500 mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px]">close</span> <span class="lang-en">Without Kenon</span><span class="lang-zh">没有 Kenon</span>
-            </div>
-            <p class="text-on-surface-variant text-base md:text-lg">
-                <span class="lang-en">Lacking a stable project state entry point before starting work.</span>
-                <span class="lang-zh">开工前缺少稳定的项目状态入口。</span>
-            </p>
-        </div>
-        <div class="bg-surface-container/50 backdrop-blur-md p-6 md:p-8 relative">
-            <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyan-500 shadow-[0_0_10px_rgba(0,229,255,0.8)]"></div>
-            <div class="text-[10px] uppercase font-mono text-cyan-400 mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px]">check</span> <span class="lang-en">With Kenon</span><span class="lang-zh">有了 Kenon</span>
-            </div>
-            <p class="text-cyan-50 text-base md:text-lg">
-                <span class="lang-en"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">load</code> returns a folded, minimal relevant context instead of a full dump.</span>
-                <span class="lang-zh"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">load</code> 返回折叠后的最小相关上下文，而不是整个 dump。</span>
-            </p>
-        </div>
-    </div>
-
-    <!-- Item 0.2 -->
-    <div class="grid md:grid-cols-2 gap-px bg-outline-variant/10 rounded-xl overflow-hidden border border-outline-variant/10 shadow-lg">
-        <div class="bg-[#120a0a]/80 p-6 md:p-8">
-            <div class="text-[10px] uppercase font-mono text-red-500 mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px]">close</span> <span class="lang-en">Without Kenon</span><span class="lang-zh">没有 Kenon</span>
-            </div>
-            <p class="text-on-surface-variant text-base md:text-lg">
-                <span class="lang-en">Excluded paths and discarded options are hard to reuse.</span>
-                <span class="lang-zh">已排除路径难以复用。</span>
-            </p>
-        </div>
-        <div class="bg-surface-container/50 backdrop-blur-md p-6 md:p-8 relative">
-            <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyan-500 shadow-[0_0_10px_rgba(0,229,255,0.8)]"></div>
-            <div class="text-[10px] uppercase font-mono text-cyan-400 mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px]">check</span> <span class="lang-en">With Kenon</span><span class="lang-zh">有了 Kenon</span>
-            </div>
-            <p class="text-cyan-50 text-base md:text-lg">
-                <span class="lang-en">Explicit <code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">excluded</code> makes discarded paths and conditions retractable and reconsiderable.</span>
-                <span class="lang-zh"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">excluded</code>、<code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">grounds</code> 与 <code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">reconsider_when</code> 让排除路径及其生效条件可重审。</span>
-            </p>
-        </div>
-    </div>
-
-    <!-- Item 1 -->
-    <div class="grid md:grid-cols-2 gap-px bg-outline-variant/10 rounded-xl overflow-hidden border border-outline-variant/10 shadow-lg">
-        <div class="bg-[#120a0a]/80 p-6 md:p-8">
-            <div class="text-[10px] uppercase font-mono text-red-500 mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px]">close</span> <span class="lang-en">Without Kenon</span><span class="lang-zh">没有 Kenon</span>
-            </div>
-            <p class="text-on-surface-variant text-base md:text-lg">
-                <span class="lang-en">Changes easily cross historical design boundaries unguided.</span>
-                <span class="lang-zh">变更极易无意越过项目的历史设计边界。</span>
-            </p>
-        </div>
-        <div class="bg-surface-container/50 backdrop-blur-md p-6 md:p-8 relative">
-            <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyan-500 shadow-[0_0_10px_rgba(0,229,255,0.8)]"></div>
-            <div class="text-[10px] uppercase font-mono text-cyan-400 mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px]">check</span> <span class="lang-en">With Kenon</span><span class="lang-zh">有了 Kenon</span>
-            </div>
-            <p class="text-cyan-50 text-base md:text-lg">
-                <span class="lang-en"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">check --diff</code> intercepts overstepping before commit.</span>
-                <span class="lang-zh"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">check --diff</code> 在合入前拦截并预警越界行为。</span>
-            </p>
-        </div>
-    </div>
-
-    <!-- Item 2 -->
-    <div class="grid md:grid-cols-2 gap-px bg-outline-variant/10 rounded-xl overflow-hidden border border-outline-variant/10 shadow-lg">
-        <div class="bg-[#120a0a]/80 p-6 md:p-8">
-            <div class="text-[10px] uppercase font-mono text-red-500 mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px]">close</span> <span class="lang-en">Without Kenon</span><span class="lang-zh">没有 Kenon</span>
-            </div>
-            <p class="text-on-surface-variant text-base md:text-lg">
-                <span class="lang-en">Verification scope balloons out of control after code changes.</span>
-                <span class="lang-zh">代码改完后验证范围容易扩散且失控。</span>
-            </p>
-        </div>
-        <div class="bg-surface-container/50 backdrop-blur-md p-6 md:p-8 relative">
-            <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyan-500 shadow-[0_0_10px_rgba(0,229,255,0.8)]"></div>
-            <div class="text-[10px] uppercase font-mono text-cyan-400 mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px]">check</span> <span class="lang-en">With Kenon</span><span class="lang-zh">有了 Kenon</span>
-            </div>
-            <p class="text-cyan-50 text-base md:text-lg">
-                <span class="lang-en"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">impact / verify</code> shrinks scope & drives evidence-based acceptance.</span>
-                <span class="lang-zh"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">impact / verify</code> 缩小验证范围并以证据驱动流转。</span>
-            </p>
-        </div>
-    </div>
-
-    <!-- Item 3 -->
-    <div class="grid md:grid-cols-2 gap-px bg-outline-variant/10 rounded-xl overflow-hidden border border-outline-variant/10 shadow-lg">
-        <div class="bg-[#120a0a]/80 p-6 md:p-8">
-            <div class="text-[10px] uppercase font-mono text-red-500 mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px]">close</span> <span class="lang-en">Without Kenon</span><span class="lang-zh">没有 Kenon</span>
-            </div>
-            <p class="text-on-surface-variant text-base md:text-lg">
-                <span class="lang-en">Engineering semantics are scattered across sessions and prompts.</span>
-                <span class="lang-zh">工程语义零散分布在各个会话记录和 prompt 补丁中。</span>
-            </p>
-        </div>
-        <div class="bg-surface-container/50 backdrop-blur-md p-6 md:p-8 relative">
-            <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyan-500 shadow-[0_0_10px_rgba(0,229,255,0.8)]"></div>
-            <div class="text-[10px] uppercase font-mono text-cyan-400 mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px]">check</span> <span class="lang-en">With Kenon</span><span class="lang-zh">有了 Kenon</span>
-            </div>
-            <p class="text-cyan-50 text-base md:text-lg">
-                <span class="lang-en"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">save / finalize</code> writes decisions & evidence back to the repo ledger.</span>
-                <span class="lang-zh"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">save / finalize</code> 把决策、边界和证据写回长青仓库。</span>
-            </p>
-        </div>
-    </div>
-
-    <!-- Item 4 -->
-    <div class="grid md:grid-cols-2 gap-px bg-outline-variant/10 rounded-xl overflow-hidden border border-outline-variant/10 shadow-lg">
-        <div class="bg-[#120a0a]/80 p-6 md:p-8">
-            <div class="text-[10px] uppercase font-mono text-red-500 mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px]">close</span> <span class="lang-en">Without Kenon</span><span class="lang-zh">没有 Kenon</span>
-            </div>
-            <p class="text-on-surface-variant text-base md:text-lg">
-                <span class="lang-en">Concurrent Agents clash over context, workspace, and the final say.</span>
-                <span class="lang-zh">多个 Agent 并发时容易抢夺上下文、工作区与最终解释权。</span>
-            </p>
-        </div>
-        <div class="bg-surface-container/50 backdrop-blur-md p-6 md:p-8 relative">
-            <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyan-500 shadow-[0_0_10px_rgba(0,229,255,0.8)]"></div>
-            <div class="text-[10px] uppercase font-mono text-cyan-400 mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px]">check</span> <span class="lang-en">With Kenon</span><span class="lang-zh">有了 Kenon</span>
-            </div>
-            <p class="text-cyan-50 text-base md:text-lg">
-                <span class="lang-en">Append-only truth + isolated execution = safe merge without collisions.</span>
-                <span class="lang-zh">Append-only 真源 + 隔离执行，并行追加与合流而不互相踩踏状态。</span>
-            </p>
-        </div>
-    </div>
-
-    <!-- Item 5 -->
-    <div class="grid md:grid-cols-2 gap-px bg-outline-variant/10 rounded-xl overflow-hidden border border-outline-variant/10 shadow-lg">
-        <div class="bg-[#120a0a]/80 p-6 md:p-8">
-            <div class="text-[10px] uppercase font-mono text-red-500 mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px]">close</span> <span class="lang-en">Without Kenon</span><span class="lang-zh">没有 Kenon</span>
-            </div>
-            <p class="text-on-surface-variant text-base md:text-lg">
-                <span class="lang-en">Agents rebuild state from scratch every round using logs and diffs.</span>
-                <span class="lang-zh">Agent 每轮都需自己从零去读取日志和 Diff 拼凑当前态势。</span>
-            </p>
-        </div>
-        <div class="bg-surface-container/50 backdrop-blur-md p-6 md:p-8 relative">
-            <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyan-500 shadow-[0_0_10px_rgba(0,229,255,0.8)]"></div>
-            <div class="text-[10px] uppercase font-mono text-cyan-400 mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px]">check</span> <span class="lang-en">With Kenon</span><span class="lang-zh">有了 Kenon</span>
-            </div>
-            <p class="text-cyan-50 text-base md:text-lg">
-                <span class="lang-en"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">load</code> returns minimal, highly consumable state summaries and next steps.</span>
-                <span class="lang-zh"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">load</code> 仅返回高度折叠后的态势摘要、异常分级与下一步明确导航。</span>
-            </p>
-        </div>
-    </div>
-
-    <!-- Item 6 -->
-    <div class="grid md:grid-cols-2 gap-px bg-outline-variant/10 rounded-xl overflow-hidden border border-outline-variant/10 shadow-lg">
-        <div class="bg-[#120a0a]/80 p-6 md:p-8">
-            <div class="text-[10px] uppercase font-mono text-red-500 mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px]">close</span> <span class="lang-en">Without Kenon</span><span class="lang-zh">没有 Kenon</span>
-            </div>
-            <p class="text-on-surface-variant text-base md:text-lg">
-                <span class="lang-en">Heavy tasks like batch audits and debugging lack controlled execution channels.</span>
-                <span class="lang-zh">做批量审计、深层次联调等重操作时，缺乏系统级的受控通道。</span>
-            </p>
-        </div>
-        <div class="bg-surface-container/50 backdrop-blur-md p-6 md:p-8 relative">
-            <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyan-500 shadow-[0_0_10px_rgba(0,229,255,0.8)]"></div>
-            <div class="text-[10px] uppercase font-mono text-cyan-400 mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px]">check</span> <span class="lang-en">With Kenon</span><span class="lang-zh">有了 Kenon</span>
-            </div>
-            <p class="text-cyan-50 text-base md:text-lg">
-                <span class="lang-en"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">invoke</code> provides a controlled multi-backend environment.</span>
-                <span class="lang-zh"><code class="text-xs bg-cyan-950/50 px-1 py-0.5 rounded text-cyan-300 border border-cyan-500/30">invoke</code> 提供多后端的系统级无缝跨平台受控执行层。</span>
-            </p>
-        </div>
-    </div>
-
-    <!-- Item 7 -->
-    <div class="grid md:grid-cols-2 gap-px bg-outline-variant/10 rounded-xl overflow-hidden border border-outline-variant/10 shadow-lg">
-        <div class="bg-[#120a0a]/80 p-6 md:p-8">
-            <div class="text-[10px] uppercase font-mono text-red-500 mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px]">close</span> <span class="lang-en">Without Kenon</span><span class="lang-zh">没有 Kenon</span>
-            </div>
-            <p class="text-on-surface-variant text-base md:text-lg">
-                <span class="lang-en">Every Agent runtime builds its own fractured ecosystem.</span>
-                <span class="lang-zh">每一个 Agent runtime 平台都在试图自己搞一套孤立生态。</span>
-            </p>
-        </div>
-        <div class="bg-surface-container/50 backdrop-blur-md p-6 md:p-8 relative">
-            <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyan-500 shadow-[0_0_10px_rgba(0,229,255,0.8)]"></div>
-            <div class="text-[10px] uppercase font-mono text-cyan-400 mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px]">check</span> <span class="lang-en">With Kenon</span><span class="lang-zh">有了 Kenon</span>
-            </div>
-            <p class="text-cyan-50 text-base md:text-lg">
-                <span class="lang-en">One native protocol connects to 6 major coding agent runtimes universally.</span>
-                <span class="lang-zh">底层一套协议栈，原生无缝挂接打通 6 个主流的 Agent 运行环境。</span>
-            </p>
-        </div>
-    </div>
+<div class="glass-panel rounded-2xl p-8 border border-outline-variant/20 hover:bg-surface-container-high transition-all relative overflow-hidden group">
+    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-emerald-400/5 rounded-full blur-[60px] group-hover:bg-emerald-400/15 transition-all"></div>
+    <span class="material-symbols-outlined text-emerald-400 text-4xl mb-4 block relative z-10 group-hover:scale-110 transition-transform">block</span>
+    <h3 class="font-headline font-bold text-xl text-on-surface mb-3 relative z-10 tracking-wider"><span class="lang-en">Boundaries are first-class.</span><span class="lang-zh">边界是一等公民。</span></h3>
+    <p class="text-on-surface-variant text-sm relative z-10"><span class="lang-en">"Why not" is as important as "why". Exclusions, grounds and reconsider conditions are core data.</span><span class="lang-zh">"为什么不做"和"为什么做"同等重要。排除路径、依据和重审条件是核心数据。</span></p>
+</div>
+<div class="glass-panel rounded-2xl p-8 border border-outline-variant/20 hover:bg-surface-container-high transition-all relative overflow-hidden group">
+    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-amber-400/5 rounded-full blur-[60px] group-hover:bg-amber-400/15 transition-all"></div>
+    <span class="material-symbols-outlined text-amber-400 text-4xl mb-4 block relative z-10 group-hover:scale-110 transition-transform">local_fire_department</span>
+    <h3 class="font-headline font-bold text-xl text-on-surface mb-3 relative z-10 tracking-wider"><span class="lang-en">Hot ledger, not docs.</span><span class="lang-zh">热层账本，不是文档系统。</span></h3>
+    <p class="text-on-surface-variant text-sm relative z-10"><span class="lang-en">Kenon manages structured project knowledge (JSONL). Project docs (Markdown) stay independent.</span><span class="lang-zh">Kenon 管结构化项目知识（JSONL 热层），项目文档（Markdown 冷层）独立存在。</span></p>
+</div>
+</div>
 </div>
 </section>
-
 <!-- Contrast Table -->
 <section class="py-24 max-w-7xl mx-auto px-8">
 <div class="mb-16">
@@ -998,10 +953,11 @@
             Kenon
         </div>
     </div>
-    
+
     <!-- Row 1: Primary Consumer -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-8 border-b border-outline-variant/10">
-        <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0">
+        <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-xl hidden md:inline">smart_toy</span>
             <span class="lang-en">Primary Consumer</span>
             <span class="lang-zh">第一消费者</span>
         </div>
@@ -1020,10 +976,11 @@
             </span>
         </div>
     </div>
-    
+
     <!-- Row 2: Core Objective -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-8 border-b border-outline-variant/10">
-        <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0">
+        <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-xl hidden md:inline">target</span>
             <span class="lang-en">Core Objective</span>
             <span class="lang-zh">核心目标</span>
         </div>
@@ -1045,7 +1002,8 @@
 
     <!-- Row 3: Core Abstractions -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-8 border-b border-outline-variant/10">
-        <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0">
+        <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-xl hidden md:inline">category</span>
             <span class="lang-en">Core Abstractions</span>
             <span class="lang-zh">主要抽象</span>
         </div>
@@ -1065,7 +1023,8 @@
 
     <!-- Row 4: Context Logic -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-8 border-b border-outline-variant/10">
-        <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0">
+        <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-xl hidden md:inline">psychology</span>
             <span class="lang-en">Context Logic</span>
             <span class="lang-zh">上下文方式</span>
         </div>
@@ -1087,7 +1046,8 @@
 
     <!-- Row 5: Task Loop -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-8 border-b border-outline-variant/10">
-        <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0">
+        <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-xl hidden md:inline">autorenew</span>
             <span class="lang-en">Task Loop</span>
             <span class="lang-zh">任务闭环</span>
         </div>
@@ -1108,7 +1068,8 @@
 
     <!-- Row 5.5: Boundary Control -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-8 border-b border-outline-variant/10">
-        <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0">
+        <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-xl hidden md:inline">fence</span>
             <span class="lang-en">Boundary Control</span>
             <span class="lang-zh">边界控制</span>
         </div>
@@ -1127,10 +1088,11 @@
             </span>
         </div>
     </div>
-    
+
     <!-- Row 6: Project Memory -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-8">
-        <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0">
+        <div class="md:col-span-3 font-headline font-bold text-on-surface text-xl md:text-base mb-4 md:mb-0 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-xl hidden md:inline">history_edu</span>
             <span class="lang-en">Project Memory</span>
             <span class="lang-zh">项目记忆</span>
         </div>
@@ -1151,6 +1113,17 @@
     </div>
 </div>
 </section>
+<!-- Scope note -->
+<div class="max-w-5xl mx-auto px-8 py-12 text-center">
+<p class="text-2xl md:text-3xl font-headline font-bold text-on-surface mb-4 leading-snug">
+    <span class="lang-en">Built for real codebases that evolve.</span>
+    <span class="lang-zh">为持续演进的真实代码仓库而生。</span>
+</p>
+<p class="text-on-surface-variant text-sm leading-relaxed opacity-70">
+    <span class="lang-en">Kenon shines when agents work on real codebases with evolving decisions, dependencies and quality signals. Of course, if the project is a throwaway script, a solo chat without a repo, or you need cloud-hosted context, Kenon isn't the right fit &mdash; it's a repo-local semantic layer, not a workflow replacement or a SaaS.</span>
+    <span class="lang-zh">Kenon 适合 Agent 在有真实决策、依赖和质量信号的代码仓库中持续工作的场景。当然，如果项目只是一次性脚本、纯聊天没有仓库、或需要云端管理上下文，Kenon 就不太适合——它是仓库本地语义层，不是工作流替代品，也不是 SaaS。</span>
+</p>
+</div>
 </main>
 <!-- Footer -->
 <footer class="bg-[#0b1326] w-full py-12 border-t border-white/5">
@@ -1174,8 +1147,8 @@
 </footer>
 <script>
     function copyPrompt() {
-        const textToCopy = document.body.getAttribute('data-lang') === 'zh' 
-            ? document.getElementById('agent-prompt-zh').innerText 
+        const textToCopy = document.body.getAttribute('data-lang') === 'zh'
+            ? document.getElementById('agent-prompt-zh').innerText
             : document.getElementById('agent-prompt-en').innerText;
         navigator.clipboard.writeText(textToCopy).then(() => {
             const btnText = document.getElementById('copy-btn-text');
@@ -1194,7 +1167,7 @@
     class GlitchTextEffect {
         constructor(element) {
             this.element = element;
-            
+
             // Set up canvas
             this.canvas = document.createElement('canvas');
             this.ctx = this.canvas.getContext('2d');
@@ -1203,7 +1176,7 @@
             this.canvas.style.left = '0';
             this.canvas.style.pointerEvents = 'none';
             this.element.style.position = 'relative';
-            
+
             // Hide original text but keep DOM layout
             Array.from(this.element.children).forEach(child => child.style.opacity = '0');
             if (this.element.children.length === 0) {
@@ -1216,7 +1189,7 @@
                 }
             }
             this.element.appendChild(this.canvas);
-            
+
             // Detect font styles
             const computed = window.getComputedStyle(this.element);
             this.fontFamily = computed.fontFamily;
@@ -1226,12 +1199,12 @@
             this.lineHeight = parseFloat(this.lineHeightStr) || (parseFloat(this.fontSize) * 1.5);
             this.color = computed.color;
             this.fontString = `${this.fontWeight} ${this.fontSize} ${this.fontFamily}`;
-            
+
             this.progress = 0;
             this.lines = [];
             this.chars = '!<>-_\\\\/[]{}—=+*^?#________';
             this.isAnimating = false;
-            
+
             this.updateText();
             this.initObserver();
             this.start();
@@ -1241,7 +1214,7 @@
             const isZh = document.body.getAttribute('data-lang') === 'zh';
             const enSpan = this.element.querySelector('.lang-en');
             const zhSpan = this.element.querySelector('.lang-zh');
-            
+
             if (enSpan && zhSpan) {
                 this.currentSpan = isZh ? zhSpan : enSpan;
                 this.currentText = isZh ? zhSpan.innerText : enSpan.innerText;
@@ -1263,7 +1236,7 @@
                 this.measure();
             });
             observer.observe(this.element);
-            
+
             // observe language changes
             const langObserver = new MutationObserver((mutations) => {
                 mutations.forEach((mutation) => {
@@ -1280,26 +1253,26 @@
         measure() {
             const width = this.element.clientWidth;
             if (width === 0) return;
-            
+
             // Re-fetch computed font in case media queries changed sizes
             const currentComputed = window.getComputedStyle(this.currentSpan || this.element);
             this.fontString = `${currentComputed.fontWeight} ${currentComputed.fontSize} ${currentComputed.fontFamily}`;
             this.lineHeight = parseFloat(currentComputed.lineHeight) || (parseFloat(currentComputed.fontSize) * 1.5);
-            
+
             const prepared = prepareWithSegments(this.currentText, this.fontString);
             const { height, lines } = layoutWithLines(prepared, width, this.lineHeight);
-            
+
             this.lines = lines;
-            
+
             const dpr = window.devicePixelRatio || 1;
             this.canvas.width = width * dpr;
             this.canvas.height = height * dpr;
             this.canvas.style.width = `${width}px`;
             this.canvas.style.height = `${height}px`;
-            
+
             this.ctx.scale(dpr, dpr);
             this.ctx.textBaseline = 'top';
-            
+
             if (!this.isAnimating) {
                 this.render(1);
             }
@@ -1315,16 +1288,16 @@
 
         animate() {
             if (!this.isAnimating) return;
-            
+
             const now = performance.now();
             const elapsed = Math.max(0, now - this.startTime);
             const duration = 1500; // 1.5s
-            
+
             this.progress = Math.min(1, elapsed / duration);
             const easeProgress = 1 - Math.pow(1 - this.progress, 3);
-            
+
             this.render(easeProgress);
-            
+
             if (this.progress < 1) {
                 requestAnimationFrame(() => this.animate());
             } else {
@@ -1336,26 +1309,26 @@
         render(p) {
             this.ctx.clearRect(0, 0, this.canvas.width / (window.devicePixelRatio || 1), this.canvas.height / (window.devicePixelRatio || 1));
             this.ctx.font = this.fontString;
-            
+
             const currentComputed = window.getComputedStyle(this.element);
             this.ctx.fillStyle = currentComputed.color;
-            
+
             let y = 0;
             for (let i = 0; i < this.lines.length; i++) {
                 const line = this.lines[i];
                 let x = 0;
-                
+
                 // Basic center alignment fallback if needed
                 if (currentComputed.textAlign === 'center') {
                     x = (this.element.clientWidth - line.width) / 2;
                 }
-                
+
                 for (let j = 0; j < line.text.length; j++) {
                     const char = line.text[j];
                     const charWidth = this.ctx.measureText(char).width;
-                    
+
                     const threshold = (i * 0.15) + (j / line.text.length) * 0.6;
-                    
+
                     if (p >= 1 || p > threshold + 0.2) {
                         this.ctx.fillText(char, x, y);
                     } else if (p > threshold) {
