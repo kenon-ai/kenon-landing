@@ -94,3 +94,25 @@ For floating panels, use `surface_variant` at `60%` opacity with a `backdrop-fil
 *   **Don't** use all-caps for headlines; it feels too "Industrial/Military."
 *   **Don't** use harsh, pure black shadows.
 *   **Don't** clutter the UI with dividers; let white space and tonal shifts do the heavy lifting.
+
+---
+
+## 7. Logo Design System
+
+The Kenon mark is derived from an abstracted `K`, rather than from a purely decorative dot pattern.
+
+Its structure is built around one anchor point extending into four connected points. This reflects a core idea in Kenon’s design language: **one anchor, four facets**.
+
+- Anchor: space / module- Four facets: time, quality, intent, and dependencies
+
+Because of that, the logo is meant to express both the name **Kenon** and the project’s structural model, not just a generic “tech dots” aesthetic.
+
+## Color system
+
+Kenon’s formal mark is monochrome: **black and white**.
+
+On the website and in digital presentation, grey-blue or fluorescent grey-blue accents may appear as supporting interface colors, but they are not part of the formal primary mark.
+
+## Usage note
+
+Formal usage should prefer the monochrome version to keep the identity stable across contexts and media.
